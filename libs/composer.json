@@ -1,0 +1,7 @@
+{
+    "require": {
+        "google/apiclient": "^2.1",
+        "paypal/rest-api-sdk-php": "^1.11",
+        "phpmailer/phpmailer": "^5.2"
+    }
+}
