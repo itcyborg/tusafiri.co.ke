@@ -175,6 +175,43 @@ if(isset($_POST['login'])){
     echo $db->getMsg();
 }
 
+if(isset($_POST['contactMessage']))
+{
+    $email=$_POST['email'];
+    $subject=$_POST['subject'];
+    $name=$_POST['name'];
+    $tel=$_POST['tel'];
+    $msg=$_POST['msg'];
+    $res=sendMessage('helpdesk@tusafiri.co.ke',$name,$msg,$email,$subject);
+    require_once "autoload.php";
+    $db=new Db_connector();
+    $db->setDetails(array('host' => 'localhost', 'dbname' => 'kiboit_tusafiri', 'dbpass' => '{@dE*Zby?llT', 'dbuser' => 'kiboit_tusafiri', 'port' => '3306', 'showerrors' => true));
+    $db->isInsert()
+        ->setTable("messages")
+        ->setData(array(
+            'Email'=>$email,
+            'Subject'=>$subject,
+            'Tel'=>$tel,
+            'Message'=>$msg,
+            'MID'=>generateID(),
+            'Name'=>$name
+        ));
+    $result=$db->exec();
+    if($db->isError()){
+        echo json_encode(array('status'=>false,'error'=>$db->getMsg()));
+        die();
+    }else{
+        if($res==true){
+            echo json_encode(array('status'=>true,'to'=>'helpdesk@tusafiri.co.ke'));
+            die();
+        }else{
+            echo json_encode(array('status'=>false,'error'=>$res));
+            die();
+        }
+    }
+
+}
+
 if(isset($_POST['loginGoogle'])){
     $email=$_POST['email'];
     $token=$_POST['token'];
@@ -717,6 +754,33 @@ function sendMail($to,$msg,$from,$subject=null){
         return true;
     }
 }
+
+function sendMessage($to,$name,$msg,$from,$subject=null){
+    require_once "../libs/vendor/autoload.php";
+    //Create a new PHPMailer instance
+    $mail = new PHPMailer;
+    //Set who the message is to be sent from
+    $mail->setFrom('admin@tusafiri.co.ke','On behalf of:'.$name);
+    //Set an alternative reply-to address
+    $mail->addReplyTo($from,$name);
+    //Set who the message is to be sent to
+    $mail->addAddress($to,$to);
+    //Set the subject line
+    $mail->Subject = $subject;
+    //Read an HTML message body from an external file, convert referenced images to embedded,
+    //convert HTML into a basic plain-text alternative body
+    $mail->msgHTML($msg);
+    //Replace the plain text body with one created manually
+    $mail->AltBody = $msg;
+
+    //send the message, check for errors
+    if (!$mail->send()) {
+        return "Mailer Error: " . $mail->ErrorInfo;
+    } else {
+        return true;
+    }
+}
+
 
 function resetPassword($email){
     $password=generateID1();

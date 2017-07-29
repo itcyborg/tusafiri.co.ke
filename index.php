@@ -181,10 +181,11 @@
             <div class="col-md-4 col-sm-12 col-lg-3 col-lg">
                 <h3 class="section-title">Connect with Us</h3>
                 <ul class="social-media">
-                    <li><a href="#" class="facebook"><i class="icon-facebook"></i></a></li>
-                    <li><a href="#" class="twitter"><i class="icon-twitter"></i></a></li>
-                    <li><a href="#" class="dribbble"><i class="icon-dribbble"></i></a></li>
-                    <li><a href="#" class="github"><i class="icon-github-alt"></i></a></li>
+                    <li><a href="https://www.facebook.com/Tusafiri_KE" class="facebook"><i class="icon-facebook"></i></a></li>
+                    <li><a href="https://www.twitter.com/Tusafiri_KE" class="twitter"><i class="icon-twitter"></i></a></li>
+                    <li><a href="https://www.instagram.com/Tusafiri_KE/" class="instagram"><i class="icon-instagram"></i></a></li>
+                    <li><a href="https://www.youtube.com/user/TusafiriPlanner" class="youtube"><i class="icon-social-youtube"></i></a></li>
+                    <li><a href="mailto:helpdesk@tusafiri.co.ke"><i class="icon-help2"></i></a></li>
                 </ul>
             </div>
         </div>
@@ -198,69 +199,6 @@
     </div>
 </div>
 
-<!-- Modals-->
-<div class="modal fade" role="dialog" id="createTrip">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h2>Create a Trip</h2>
-            </div>
-            <div class="modal-body">
-                <div class="container-fluid">
-                    <div id="status"></div>
-                    <div id="step1">
-                        <h3>Where do you want to go?</h3>
-                        <form id="formstep1">
-                            <input class="form-control" type="text" required name="location" id="location" placeholder="Enter Location i.e. Mombasa"><br>
-                            <input type="submit" id="continue1" name="continue1" value="Continue >" class="btn btn-primary pull-right">
-                        </form>
-                    </div>
-                    <div id="step2">
-                        <h3>What is your trip name?</h3>
-                        <form id="formstep2">
-                            <input class="form-control" required type="text" name="tripname" id="tripname" placeholder="i.e 6 - Day Diani Beach couples retreat"><br>
-                            <input type="submit" id="continue2" name="continue2" value="Continue >" class="btn btn-primary pull-right">
-                        </form>
-                        <button name="back1" id="back1" onclick="back('step1','step2')" class="btn btn-primary pull-left">< Back</button>
-                    </div>
-                    <div id="step3">
-                        <h3>How can you classify your trip?</h3>
-                        <form id="formstep3">
-                            <select class="form-control" required id="category" name="classification">
-                                <option value="0">Select classification</option>
-                                <option value="family">Family</option>
-                            </select><br>
-                            <input type="submit" id="continue3" name="continue3" value="Continue >" class="btn btn-primary pull-right">
-                        </form>
-                        <button name="back2" id="back2" onclick="back('step2','step3')" class="btn btn-primary pull-left">< Back</button>
-                    </div>
-                    <div id="step4">
-                        <h3>When will your trip be?</h3>
-                        <form id="formstep4">
-                            <div class="row form-inline">From <input required type="date" id="fromdate" class="form-control"> to <input required class="form-control" id="todate" type="date"></div><br>
-                            <input type="submit" name="continue4" id="continue4" value="Continue >" class="btn btn-primary pull-right">
-                        </form>
-                        <button name="back3" id="back3" onclick="back('step3','step4')" class="btn btn-primary pull-left">< Back</button>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer"><small>&copy; 2017 Tusafiri</small></div>
-        </div>
-    </div>
-</div>
-<div class="modal fade" role="dialog" id="joinTrip">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h2>Join a Trip</h2>
-            </div>
-            <div class="modal-body"></div>
-            <div class="modal-footer"></div>
-        </div>
-    </div>
-</div>
 
 <!-- jQuery -->
 <script src="js/jquery.js"></script>
