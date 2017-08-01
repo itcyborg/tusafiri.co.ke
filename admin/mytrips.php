@@ -203,20 +203,22 @@ if(isset($_GET['proceed']) || isset($_SESSION['refurl'])=='createTrip'){
                                                 $status="Cancelled";
                                             }
                                             $output.="
-                <tr>
-                     <td>$items->TripID</td>
-                     <td>$items->Name</td>
-                     <td>$items->BookID</td>
-                     <td>$items->Destination</td>
-                     <td>$items->StartDate</td>
-                     <td>$items->FinishDate</td>
-                     <td>$items->MeetingPoint</td>
-                     <td>$items->Amount</td>
-                     <td>$status</td>
-                     <td>Action</td>               
-                </tr>
-            ";
-                                        }else {
+                                                <tr>
+                                                     <td>$items->TripID</td>
+                                                     <td>$items->Name</td>
+                                                     <td>$items->BookID</td>
+                                                     <td>$items->Destination</td>
+                                                     <td>$items->StartDate</td>
+                                                     <td>$items->FinishDate</td>
+                                                     <td>$items->MeetingPoint</td>
+                                                     <td>$items->Amount</td>
+                                                     <td>$status</td>
+                                                     <td>Action</td>               
+                                                </tr>
+                                            ";
+                                        }elseif($results['count']==0) {
+                                            $output="<tr><td>No data</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>";
+                                        }else{
                                             foreach ($results as $items) {
                                                 $status = "";
                                                 /**

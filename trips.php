@@ -2,8 +2,6 @@
 session_start();
 $db=new PDO("mysql:host=localhost;dbname=kiboit_tusafiri", 'kiboit_tusafiri','{@dE*Zby?llT' );
 $sql="SELECT trips.*,users.* FROM trips JOIN users ON users.uniqueID=trips.ByUser WHERE trips.Post='YES'";
-$page=1;
-$pages;
 $data="";
 $_SESSION['return_to']=$_SERVER['HTTP_REFERER'];
 if(isset($_GET['page'])){
@@ -54,8 +52,7 @@ if(isset($_GET['page'])){
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <link rel="shortcut icon" href="favicon.ico">
 
-    <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic' rel='stylesheet'
-          type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
 
     <!-- Animate.css -->
     <link rel="stylesheet" href="css/animate.css">
@@ -71,7 +68,9 @@ if(isset($_GET['page'])){
     <!-- Style -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/imagepop.css">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
 
 </head>
@@ -98,40 +97,79 @@ if(isset($_GET['page'])){
 <br>
 <div class="container-fluid">
 <section id="fh5co-explore" data-section="explore">
+    <div class="row">
+        <div class="container">
+            <form action="" id="searchform" class="form-inline searchbox" method="post" style="border:1px solid green;">
+                <div class="input-group input-daterange input-group-lg">
+                    <div class="input-group-addon" style="background-color:white; border:none;"><span class="fa fa-map-marker"></span></div>
+                    <select class="form-control" id="destination"  style="background-color:white; border:none;">
+                        <option value="">Destination</option>
+                    </select>
+                    <div class="input-group-addon" style="background-color:white; border:none;">
+                        <span class="glyphicon glyphicon-calendar" style="background-color:white; border:none;"></span>
+                    </div>
+                    <input type="text" class="form-control" id="start" name="start" placeholder="From" style="background-color:white; border:none;">
+                    <div class="input-group-addon" style="background-color:white; border:none;"><span class="glyphicon glyphicon-arrow-right"></span></div>
+                    <input type="text" class="form-control" id="end" name="end" placeholder="To" style="background-color:white; border:none;">
+                </div>
+                <div class="input-group-lg input-group">
+                    <div class="input-group-addon" style="background-color:white; border:none;"><span class="fa fa-dollar"></span></div>
+                    <select class="form-control" style="background-color:white; border:none;" id="price">
+                        <option value="">Price</option>
+                    </select>
+                    <div class="input-group-btn">
+                        <button class="btn btn-default" name="searchtrip" type="submit">
+                            <i class="glyphicon glyphicon-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
     <h1>Featured Trips</h1>
-    <div class="gradient"></div>
+    <div class="gradient" id="tripsalert"></div>
     <div class="container-fluid to-animate">
-        <div class="row col-md-12 col-lg-12 col-sm-12">
+        <div class="row col-md-12 col-lg-12 col-sm-12" id="tripscontent">
             <?php
-            foreach ($data as $post){
-                if($post->Classification=="featured") {
-                    $images = $post->Photos;
-                    $date = date('d-M', strtotime($post->StartDate));
-                    $stopdate = date('d-M-Y', strtotime($post->FinishDate));
-                    $image = explode(',', $images)[0];
+
+            function limit_text($text, $limit) {
+                if (str_word_count($text, 0) > $limit) {
+                    $words = str_word_count($text, 2);
+                    $pos = array_keys($words);
+                    $text = substr($text, 0, $pos[$limit]) . '...';
+                }
+                return $text;
+            }
+            foreach ($data as $result){
+                if($result->Classification=="featured") {
+                    $images = $result->Photos;
+                    $date = date('d M', strtotime($result->StartDate));
+                    $stopdate = date('d M, Y', strtotime($result->FinishDate));
+                    $photo = explode(',', $images)[0];
+                    $info=limit_text(strip_tags($result->Info),30);
                     echo "
-                            <div class='col-md-4 col-lg-4 col-sm-12'>
-                            <div class='card'>
-                                <header>
-                                    <img src='$image'>
-                                    <div class='text-wrap'>
-                                        <h2>$post->Name</h2>
-                                        <h3>$post->Destination</h3>
+                            <a href='showtrips.php?id=$result->UQID'><div class='col-md-4 col-lg-4 col-sm-12 col-xs-12' style='margin-bottom:20px;'>
+                                <div class='card'>
+                                    <img src='$photo'>
+                                    <div class='header'>
+                                        <h4><span class='fa fa-plane'></span> $date - $stopdate</h4>
                                     </div>
-                                </header>
-                                <main>
-                                    <div class='info-wrap'>
-                                        <p>Meeting Point: $post->MeetingPoint<br>
-                                        <b>From: </b><i>$date</i> to <i>$stopdate</i><br><b>Slots:</b> $post->Slots<br>
-                                        <b>By :</b> <a href='showtrips.php?user=$post->ByUser'>$post->Username</a>
-                                        </p>
+                                    <div class='footer'>
+                                        <h3>$result->Name</h3>
+                                        <div class='row'><div class='col-md-8'> <h4><span class='fa fa-map-marker'></span> $result->Destination</h4></div><div class='col-md-4'><span class='fa fa-user'></span> $result->Username</div> </div>
                                     </div>
-                                    <a href='showtrips.php?id=$post->UQID' class='cta-wrap'>
-                                        <span>More Info</span>
-                                    </a>
-                                </main>
+                                    <div class='details'>
+                                        <div>
+                                                <h5 class='tcolor'>Details</h5>
+                                                <p class='tcolor'>$info</p>
+                                                <hr>
+                                                <h4 class='tcolor'><b>Cost: </b> $result->Amount KSHS</h4>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                           </div >";
+                            </a>
+                            ";
                 }
             }
             ?>
@@ -207,6 +245,43 @@ if(isset($_GET['page'])){
 <![endif]-->
 <!-- Main JS (Do not remove) -->
 <script src="js/main.js"></script>
+<script src="js/datepicker.js"></script>
+<script>
+    $('document').ready(function(){
+        var searchurl="functions/search.php";
+        $('.input-daterange').datepicker({
+            todayBtn: "linked",
+            format:'yyyy-mm-dd'
+        });
+        $('#searchform').submit(function(e){
+            e.preventDefault();
+            var destination=$('#destination').val();
+            var price=$('#price').val();
+            var startD=$('#start').val();
+            var end=$('#end').val();
+            $.ajax({
+                url :searchurl,
+                type:'post',
+                data:{
+                    'searchtrip':true,
+                    'destination':destination,
+                    'start':startD,
+                    'end':end,
+                    'price':price
+                },
+                dataType:'json',
+                beforeSend:function(){
+                    $('#tripscontent').hide();
+                    $('#tripsalert').html("Loading...");
+                },
+                success:function(data){
+                    $('#tripsalert').html(data);
+                }
+            });
+        });
+    });
+
+</script>
 
 </body>
 </html>

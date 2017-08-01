@@ -90,8 +90,16 @@
             <h2>Register</h2>
             <div class="col-md-12 to-animate">
                 <form action="functions/constructor.php" method="post" class="col-md-6 col-lg-offset-2 col-md-offset-2 col-lg-6 col-sm-12">
+                    Username
+                    <input type="text" name="username" placeholder="Username" class="form-control"><br>
                     Email
                     <input type="email" required name="email" class="form-control" placeholder="Email"><br>
+                    Select type
+                    <select class="form-control" name="type">
+                        <option value="individual">Individual</option>
+                        <option value="organisation">Organisation/Company</option>
+                    </select>
+                    <br>
                     <div class="row">
                         <div class="col-md-6 col-lg-6">
                             Password

@@ -221,6 +221,11 @@ if(isset($_GET['id'])){
     <!-- This is what you need -->
     <script src="admin/assets/js/sweetalert2.min.js" async defer></script>
     <link rel="stylesheet" href="admin/assets/js/sweetalert2.min.css">
+    <style>
+        .img-circle{
+            max-height: 150px;
+        }
+    </style>
 
 
 

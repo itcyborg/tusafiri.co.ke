@@ -147,7 +147,7 @@ if(isset($_GET['proceed']) || isset($_SESSION['refurl'])=='createTrip'){
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a href="settings.php"><i class="ti-settings"></i> Settings</a></li>
-                                <li><a href="#"><i  class="fa fa-sign-out"></i> Logout</a></li>
+                                <li><a href="signout.php"><i  class="fa fa-sign-out"></i> Logout</a></li>
                             </ul>
                         </li>
                     </ul>

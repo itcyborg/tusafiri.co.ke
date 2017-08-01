@@ -148,6 +148,33 @@ if(isset($_GET['proceed']) || isset($_SESSION['refurl'])=='createTrip'){
 
 
         <div class="content">
+            <div class="card">
+                <div class="header">
+                    <h3>Welcome Message</h3>
+                </div>
+                <div class="content">
+                    <form action="../functions/constructor.php" method="post">
+                        <div class="row-fluid">
+                            <p>
+                                Enter the welcome message you wish to be sent to client's email. To append these client info:<br>
+                                Email: [email], Username: [username], Admin:[sign], Logo: [logo]
+                            </p>
+                            <textarea name="message" id="message">
+                                <?php $file=fopen('../functions/registration.template','r');
+                                    echo fread($file,filesize('../functions/registration.template'));
+                                    fclose($file);
+                                ?>
+                            </textarea>
+                            <br>
+                        </div>
+                        <div class="row">
+                            <div class="container">
+                                <button class="btn btn-primary" name="welcomemsg"><i class="ti-save"></i> Save Message</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
 
 
@@ -188,14 +215,14 @@ if(isset($_GET['proceed']) || isset($_SESSION['refurl'])=='createTrip'){
     <!-- Paper Dashboard Core javascript and methods for Demo purpose -->
 	<script src="assets/js/paper-dashboard.js"></script>
 
-	<!-- Paper Dashboard DEMO methods, don't include it in your project! -->
-	<script src="assets/js/demo.js"></script>
+    <script src="https://cdn.ckeditor.com/4.7.1/standard-all/ckeditor.js" onload="ck();" defer async></script>
 
 	<script type="text/javascript">
     	$(document).ready(function(){
 
-        	demo.initChartist();
-
     	});
+    function ck(){
+        CKEDITOR.replace( 'message' );
+    };
 	</script>
 </html>

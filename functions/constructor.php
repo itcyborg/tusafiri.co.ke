@@ -76,6 +76,14 @@ if(isset($_POST['removePhoto'])){
 if(isset($_POST['register'])) {
     $email = $_POST['email'];
     $password = passHash($_POST['password']);
+    $username=$_POST['username'];
+    $type=$_POST['type'];
+    $role=3;
+    if($type=="individual"){
+        $role=3;
+    }else{
+        $role=2;
+    }
         //add the class and create a new instance
         require_once "autoload.php";
         $db = new Db_connector();
@@ -83,12 +91,6 @@ if(isset($_POST['register'])) {
         //set the type of query you want to run
         #insert
         $db->isInsert();
-        #update
-        //$db->isUpdate();
-        #delete
-        //$db->isDelete();
-        #select
-        //$db->isSelect();
 
         //set the table
         $db->setTable("users");
@@ -100,7 +102,9 @@ if(isset($_POST['register'])) {
         $data = array(
             'Email' =>      $email,
             'Password' =>   $password,
-            'uniqueID'=>    generateID()
+            'uniqueID'=>    generateID(),
+            'Username'=>$username,
+            'Role'  =>$role
         );
 
         //set the conditions if is update,delete or select querys
@@ -112,11 +116,30 @@ if(isset($_POST['register'])) {
         //execute the query and get the response
         $res = $db->exec();
 
-        //check for messages
-        echo $db->getMsg();
+        if($db->isError()){
+            echo $db->getMsg();
+        }else{
+            $temp=fopen("registration.template","r");
+            $tempread=fread($temp,filesize("registration.template"));
+            fclose($temp);
+            $fix=array(
+              '[email]'=>$email,
+              '[username]'=>$username,
+              '[logo]'=>"<img style='width:250px;height: 100px;' src='http://www.tusafiri.co.ke/images/logo.png' alt='logo'>",
+              '[sign]'=>'Tusafiri Kenya Admin'
+            );
+            $msg=strtr ($tempread,$fix);
+            $s=sendMails($email,$username,$msg,"no-reply@tusafiri.co.ke","Account Registration for $username <$email>");
+            mail($email,"Account registration",$msg);
+            header("Location:../login.php");
+        }
+}
 
-        //view the response
-        echo $res;
+if(isset($_POST['welcomemsg'])){
+    $file=fopen('registration.template','w') or die("Failed to create file");
+    $txt=$_POST['message'];
+    fwrite($file,$txt);
+    fclose($file);
 }
 
 if(isset($_POST['login'])){
@@ -739,6 +762,32 @@ function sendMail($to,$msg,$from,$subject=null){
     $mail->addReplyTo('info@tusafiri.co.ke','Info');
     //Set who the message is to be sent to
     $mail->addAddress($to,$to);
+    //Set the subject line
+    $mail->Subject = $subject;
+    //Read an HTML message body from an external file, convert referenced images to embedded,
+    //convert HTML into a basic plain-text alternative body
+    $mail->msgHTML($msg);
+    //Replace the plain text body with one created manually
+    $mail->AltBody = $msg;
+
+    //send the message, check for errors
+    if (!$mail->send()) {
+        return "Mailer Error: " . $mail->ErrorInfo;
+    } else {
+        return true;
+    }
+}
+
+function sendMails($to,$touser,$msg,$from,$subject=null){
+    require_once "../libs/vendor/autoload.php";
+    //Create a new PHPMailer instance
+    $mail = new PHPMailer;
+    //Set who the message is to be sent from
+    $mail->setFrom($from,'Admin');
+    //Set an alternative reply-to address
+    $mail->addReplyTo('info@tusafiri.co.ke','Info');
+    //Set who the message is to be sent to
+    $mail->addAddress($to,$touser);
     //Set the subject line
     $mail->Subject = $subject;
     //Read an HTML message body from an external file, convert referenced images to embedded,

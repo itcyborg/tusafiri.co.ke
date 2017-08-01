@@ -11,8 +11,7 @@
 
         $_SESSION['profile']=explode("@",$_SESSION['user'])[0];
     }else{
-        die(var_dump($_SESSION));
-        //header('location:../login.php');
+        header('location:../login.php');
     }
     if(isset($_GET['proceed']) || isset($_SESSION['refurl'])=='createTrip'){
         $_SESSION['proceed']='createTrip';
@@ -138,7 +137,7 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a href="settings.php"><i class="ti-settings"></i> Settings</a></li>
-                                <li><a href="#"><i  class="fa fa-sign-out"></i> Logout</a></li>
+                                <li><a href="signout.php"><i  class="fa fa-sign-out"></i> Logout</a></li>
                             </ul>
                         </li>
                     </ul>

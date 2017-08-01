@@ -81,7 +81,7 @@ if(isset($_SESSION['user']) && isset($_SESSION['id'])){
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="#" data-nav-section="team"><span>My Trips</span></a></li>
                     <li><a href="login.php" class="external"><span>Login</span></a></li>
-                    <li class="call-to-action"><a href="register/"><span>Register</span></a></li>
+                    <li class="call-to-action"><a href="register.php"><span>Register</span></a></li>
                 </ul>
             </div>
         </nav>
@@ -96,6 +96,9 @@ if(isset($_SESSION['user']) && isset($_SESSION['id'])){
             <?php
                 if(isset($_SESSION['refurl'])=='createTrip' || $_GET['from']=='createTrip' || $_GET['from']=='joinTrip'){
                     echo "<div class='alert alert-info text-center'>Please Login to continue. Don't have an account? <a class='call-to-action' href='register.php'>Register Here</a></div>";
+                }
+                if(isset($_SESSION['registration'])==true){
+                    echo "<div class='alert alert-success text-center'>Registration successful. Please Login to continue.</div>";
                 }
             ?>
             <div class="col-md-12 to-animate">
