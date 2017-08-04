@@ -58,6 +58,7 @@ if(isset($_GET['id'])){
     $res=$db->query($sql);
     if($res->rowCount()==1){
         $results=$res->fetchAll(PDO::FETCH_OBJ);
+        $id = $tripid;
         foreach ($results as $result) {
             $photos=explode(',',$result->Photos);
             $profile=$result->ProfPic;
@@ -143,7 +144,7 @@ if(isset($_GET['id'])){
                                 <h3>$start to $stop</h3>
                                 <h3>$slots $per</h3>
                                 <h3>Registration deadline $deadline</h3>
-                                <button class='btn btn-primary' id='button' onclick='joinTrip(\"$result->UQID\",\"button\")'>Join Trip</button>
+                                <a href='jointrip.php?id=$id' class='btn btn-primary' id='button'>Join Trip</a>
                             </div>
                         </div>
                     </div>
@@ -325,58 +326,6 @@ if(isset($_GET['id'])){
     // Curently there are no option available.
 
     $('#bootstrap-touch-slider').bsTouchSlider();
-
-
-    function joinTrip(id,button){
-        var interval=null;
-        function white(){
-            $('#'+button).css('background-color',getRandomColor());
-        }
-        $.ajax({
-            url       :       'functions/constructor.php',
-            data      :       {
-                'joinTrip'  :   true,
-                'tripid'    :   id
-            },
-            type      :       'POST',
-            dataType  :       'JSON',
-            beforeSend:       function () {
-                $('#'+button).html("Joining...");
-                interval=setInterval(white,1000);
-            },
-            success   :         function (data) {
-                clearInterval(interval);
-                console.log(data);
-                if(data.status){
-                    $('#'+button).html("Success").removeClass('btn-primary').addClass('btn-success');
-                    window.location.href=data.url;
-                }else{
-                    if(data.redirect){
-                        window.location.href=data.url;
-                    }else{
-                        swal({
-                            type:'error',
-                            title:'Error',
-                            text:data.error,
-                            showCancelButton:false,
-                            showConfirmButton:true,
-                            confirmButtonText:"Ok"
-                        });
-                        $('#'+button).html("Already Joined");
-                    }
-                }
-            }
-
-        });
-    }
-    function getRandomColor() {
-        var letters = '0123456789';
-        var color = '#';
-        for (var i = 0; i < 6; i++) {
-            color += letters[Math.floor(Math.random() * 16)];
-        }
-        return color;
-    }
 </script>
 
 </body>

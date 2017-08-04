@@ -22,6 +22,7 @@ class Google_Service_ShoppingContent_DatafeedFetchSchedule extends Google_Model
   public $hour;
   public $minuteOfHour;
   public $password;
+    public $paused;
   public $timeZone;
   public $username;
   public $weekday;
@@ -66,6 +67,16 @@ class Google_Service_ShoppingContent_DatafeedFetchSchedule extends Google_Model
   {
     return $this->password;
   }
+
+    public function setPaused($paused)
+    {
+        $this->paused = $paused;
+    }
+
+    public function getPaused()
+    {
+        return $this->paused;
+    }
   public function setTimeZone($timeZone)
   {
     $this->timeZone = $timeZone;

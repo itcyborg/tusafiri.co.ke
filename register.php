@@ -94,12 +94,28 @@
                     <input type="text" name="username" placeholder="Username" class="form-control"><br>
                     Email
                     <input type="email" required name="email" class="form-control" placeholder="Email"><br>
+                    Mobile Number
+                    <input type="tel" class="form-control" name="personaltel" placeholder="Mobile Number" required>
+                    <br>
                     Select type
-                    <select class="form-control" name="type">
+                    <select class="form-control" id="user" name="type">
                         <option value="individual">Individual</option>
                         <option value="organisation">Organisation/Company</option>
                     </select>
                     <br>
+                    <div id="company" hidden class="row">
+                        <div class="form-group">
+                            <div class="col-md-6 col-sm-12 col-lg-6 col-xs-12">
+                                Company Name
+                                <input type="text" name="companyName" class="form-control"
+                                       placeholder="Company Name"><br>
+                            </div>
+                            <div class="col-md-6 col-sm-12 col-lg-6 col-xs-12">
+                                Office Number
+                                <input type="tel" name="companytel" class="form-control" placeholder="Office Number">
+                            </div>
+                        </div>
+                    </div>
                     <div class="row">
                         <div class="col-md-6 col-lg-6">
                             Password
@@ -176,6 +192,15 @@
                 $('#cpassword').removeClass('alert-danger');
                 $('#cpassword').addClass('alert-success');
                 $('#register').prop('disabled',false);
+            }
+        });
+
+        $('#user').change(function () {
+            var user = $('#user').val();
+            if (user === "organisation") {
+                $('#company').show();
+            } else {
+                $('#company').hide();
             }
         });
     });

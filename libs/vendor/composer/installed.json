@@ -462,51 +462,6 @@
         ]
     },
     {
-        "name": "firebase/php-jwt",
-        "version": "v4.0.0",
-        "version_normalized": "4.0.0.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/firebase/php-jwt.git",
-            "reference": "dccf163dc8ed7ed6a00afc06c51ee5186a428d35"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/firebase/php-jwt/zipball/dccf163dc8ed7ed6a00afc06c51ee5186a428d35",
-            "reference": "dccf163dc8ed7ed6a00afc06c51ee5186a428d35",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.3.0"
-        },
-        "time": "2016-07-18T04:51:16+00:00",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Firebase\\JWT\\": "src"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "BSD-3-Clause"
-        ],
-        "authors": [
-            {
-                "name": "Neuman Vong",
-                "email": "neuman+pear@twilio.com",
-                "role": "Developer"
-            },
-            {
-                "name": "Anant Narayanan",
-                "email": "anant@php.net",
-                "role": "Developer"
-            }
-        ],
-        "description": "A simple library to encode and decode JSON Web Tokens (JWT) in PHP. Should conform to the current spec.",
-        "homepage": "https://github.com/firebase/php-jwt"
-    },
-    {
         "name": "psr/cache",
         "version": "1.0.1",
         "version_normalized": "1.0.1.0",
@@ -555,21 +510,134 @@
         ]
     },
     {
+      "name": "google/apiclient",
+      "version": "v2.2.0",
+      "version_normalized": "2.2.0.0",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/google/google-api-php-client.git",
+        "reference": "f3fadd538315d62ebd1191d89ac791468c617260"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/google/google-api-php-client/zipball/f3fadd538315d62ebd1191d89ac791468c617260",
+        "reference": "f3fadd538315d62ebd1191d89ac791468c617260",
+        "shasum": ""
+      },
+      "require": {
+        "firebase/php-jwt": "~2.0|~3.0|~4.0|~5.0",
+        "google/apiclient-services": "~0.13",
+        "google/auth": "^1.0",
+        "guzzlehttp/guzzle": "~5.3.1|~6.0",
+        "guzzlehttp/psr7": "^1.2",
+        "monolog/monolog": "^1.17",
+        "php": ">=5.4",
+        "phpseclib/phpseclib": "~0.3.10|~2.0"
+      },
+      "require-dev": {
+        "cache/filesystem-adapter": "^0.3.2",
+        "phpunit/phpunit": "~4",
+        "squizlabs/php_codesniffer": "~2.3",
+        "symfony/css-selector": "~2.1",
+        "symfony/dom-crawler": "~2.1"
+      },
+      "suggest": {
+        "cache/filesystem-adapter": "For caching certs and tokens (using Google_Client::setCache)"
+      },
+      "time": "2017-07-10T15:34:54+00:00",
+      "type": "library",
+      "extra": {
+        "branch-alias": {
+          "dev-master": "2.x-dev"
+        }
+      },
+      "installation-source": "dist",
+      "autoload": {
+        "psr-0": {
+          "Google_": "src/"
+        },
+        "classmap": [
+          "src/Google/Service/"
+        ]
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "Apache-2.0"
+      ],
+      "description": "Client library for Google APIs",
+      "homepage": "http://developers.google.com/api-client-library/php",
+      "keywords": [
+        "google"
+      ]
+    },
+  {
+    "name": "paypal/rest-api-sdk-php",
+    "version": "1.12.0",
+    "version_normalized": "1.12.0.0",
+    "source": {
+      "type": "git",
+      "url": "https://github.com/paypal/PayPal-PHP-SDK.git",
+      "reference": "0925b11ee2261fe369f2bd7a6abfc1bf322a6601"
+    },
+    "dist": {
+      "type": "zip",
+      "url": "https://api.github.com/repos/paypal/PayPal-PHP-SDK/zipball/0925b11ee2261fe369f2bd7a6abfc1bf322a6601",
+      "reference": "0925b11ee2261fe369f2bd7a6abfc1bf322a6601",
+      "shasum": ""
+    },
+    "require": {
+      "ext-curl": "*",
+      "ext-json": "*",
+      "php": ">=5.3.0",
+      "psr/log": "^1.0.0"
+    },
+    "require-dev": {
+      "phpunit/phpunit": "3.7.*"
+    },
+    "time": "2017-07-11T19:16:53+00:00",
+    "type": "library",
+    "installation-source": "dist",
+    "autoload": {
+      "psr-0": {
+        "PayPal": "lib/"
+      }
+    },
+    "notification-url": "https://packagist.org/downloads/",
+    "license": [
+      "Apache-2.0"
+    ],
+    "authors": [
+      {
+        "name": "PayPal",
+        "homepage": "https://github.com/paypal/rest-api-sdk-php/contributors"
+      }
+    ],
+    "description": "PayPal's PHP SDK for REST APIs",
+    "homepage": "http://paypal.github.io/PayPal-PHP-SDK/",
+    "keywords": [
+      "payments",
+      "paypal",
+      "rest",
+      "sdk"
+    ]
+  },
+  {
         "name": "phpmailer/phpmailer",
-        "version": "v5.2.23",
-        "version_normalized": "5.2.23.0",
+    "version": "v5.2.24",
+    "version_normalized": "5.2.24.0",
         "source": {
             "type": "git",
             "url": "https://github.com/PHPMailer/PHPMailer.git",
-            "reference": "7115df4a6f76281109ebe352900c42403b728bb4"
+          "reference": "22d04c6a58145a244696f3f254c1875aa653b26a"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/PHPMailer/PHPMailer/zipball/7115df4a6f76281109ebe352900c42403b728bb4",
-            "reference": "7115df4a6f76281109ebe352900c42403b728bb4",
+          "url": "https://api.github.com/repos/PHPMailer/PHPMailer/zipball/22d04c6a58145a244696f3f254c1875aa653b26a",
+          "reference": "22d04c6a58145a244696f3f254c1875aa653b26a",
             "shasum": ""
         },
         "require": {
+          "ext-ctype": "*",
             "php": ">=5.0.0"
         },
         "require-dev": {
@@ -595,7 +663,7 @@
         "suggest": {
             "league/oauth2-google": "Needed for Google XOAUTH2 authentication"
         },
-        "time": "2017-03-15T19:32:56+00:00",
+    "time": "2017-07-26T21:00:20+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -633,61 +701,70 @@
         "description": "PHPMailer is a full-featured email creation and transfer class for PHP"
     },
     {
-        "name": "google/apiclient-services",
-        "version": "v0.16",
-        "version_normalized": "0.16.0.0",
+      "name": "firebase/php-jwt",
+      "version": "v5.0.0",
+      "version_normalized": "5.0.0.0",
         "source": {
             "type": "git",
-            "url": "https://github.com/google/google-api-php-client-services.git",
-            "reference": "29c32b7d90a92af279ff5b51301fef03b44da7dd"
+          "url": "https://github.com/firebase/php-jwt.git",
+          "reference": "9984a4d3a32ae7673d6971ea00bae9d0a1abba0e"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/google/google-api-php-client-services/zipball/29c32b7d90a92af279ff5b51301fef03b44da7dd",
-            "reference": "29c32b7d90a92af279ff5b51301fef03b44da7dd",
+          "url": "https://api.github.com/repos/firebase/php-jwt/zipball/9984a4d3a32ae7673d6971ea00bae9d0a1abba0e",
+          "reference": "9984a4d3a32ae7673d6971ea00bae9d0a1abba0e",
             "shasum": ""
         },
         "require": {
-            "php": ">=5.4"
+          "php": ">=5.3.0"
         },
         "require-dev": {
-            "phpunit/phpunit": "~4.8"
+          "phpunit/phpunit": " 4.8.35"
         },
-        "time": "2017-07-22T00:20:26+00:00",
+      "time": "2017-06-27T22:17:23+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
-            "psr-0": {
-                "Google_Service_": "src"
+          "psr-4": {
+            "Firebase\\JWT\\": "src"
             }
         },
         "notification-url": "https://packagist.org/downloads/",
         "license": [
-            "Apache-2.0"
+          "BSD-3-Clause"
         ],
-        "description": "Client library for Google APIs",
-        "homepage": "http://developers.google.com/api-client-library/php",
-        "keywords": [
-            "google"
-        ]
+      "authors": [
+        {
+          "name": "Neuman Vong",
+          "email": "neuman+pear@twilio.com",
+          "role": "Developer"
+        },
+        {
+          "name": "Anant Narayanan",
+          "email": "anant@php.net",
+          "role": "Developer"
+        }
+      ],
+      "description": "A simple library to encode and decode JSON Web Tokens (JWT) in PHP. Should conform to the current spec.",
+      "homepage": "https://github.com/firebase/php-jwt"
     },
     {
         "name": "google/auth",
-        "version": "v1.0",
-        "version_normalized": "1.0.0.0",
+      "version": "v1.0.1",
+      "version_normalized": "1.0.1.0",
         "source": {
             "type": "git",
             "url": "https://github.com/google/google-auth-library-php.git",
-            "reference": "db77bd2de0bcc40bf50ebe851e9eed332aeaa4df"
+          "reference": "db8e3022a308cb0e988026d38e67b91a42b41622"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/google/google-auth-library-php/zipball/db77bd2de0bcc40bf50ebe851e9eed332aeaa4df",
-            "reference": "db77bd2de0bcc40bf50ebe851e9eed332aeaa4df",
+          "url": "https://api.github.com/repos/google/google-auth-library-php/zipball/db8e3022a308cb0e988026d38e67b91a42b41622",
+          "reference": "db8e3022a308cb0e988026d38e67b91a42b41622",
             "shasum": ""
         },
         "require": {
-            "firebase/php-jwt": "~2.0|~3.0|~4.0",
+          "firebase/php-jwt": "~2.0|~3.0|~4.0|~5.0",
             "guzzlehttp/guzzle": "~5.3.1|~6.0",
             "guzzlehttp/psr7": "~1.2",
             "php": ">=5.4",
@@ -698,7 +775,7 @@
             "friendsofphp/php-cs-fixer": "^1.11",
             "phpunit/phpunit": "3.7.*"
         },
-        "time": "2017-06-13T18:00:07+00:00",
+      "time": "2017-07-31T16:34:40+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -722,55 +799,33 @@
         ]
     },
     {
-        "name": "google/apiclient",
-        "version": "v2.2.0",
-        "version_normalized": "2.2.0.0",
+      "name": "google/apiclient-services",
+      "version": "v0.17",
+      "version_normalized": "0.17.0.0",
         "source": {
             "type": "git",
-            "url": "https://github.com/google/google-api-php-client.git",
-            "reference": "f3fadd538315d62ebd1191d89ac791468c617260"
+          "url": "https://github.com/google/google-api-php-client-services.git",
+          "reference": "04d29c4b679249bd0ed62e5891203478072c8a09"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/google/google-api-php-client/zipball/f3fadd538315d62ebd1191d89ac791468c617260",
-            "reference": "f3fadd538315d62ebd1191d89ac791468c617260",
+          "url": "https://api.github.com/repos/google/google-api-php-client-services/zipball/04d29c4b679249bd0ed62e5891203478072c8a09",
+          "reference": "04d29c4b679249bd0ed62e5891203478072c8a09",
             "shasum": ""
         },
         "require": {
-            "firebase/php-jwt": "~2.0|~3.0|~4.0|~5.0",
-            "google/apiclient-services": "~0.13",
-            "google/auth": "^1.0",
-            "guzzlehttp/guzzle": "~5.3.1|~6.0",
-            "guzzlehttp/psr7": "^1.2",
-            "monolog/monolog": "^1.17",
-            "php": ">=5.4",
-            "phpseclib/phpseclib": "~0.3.10|~2.0"
+          "php": ">=5.4"
         },
         "require-dev": {
-            "cache/filesystem-adapter": "^0.3.2",
-            "phpunit/phpunit": "~4",
-            "squizlabs/php_codesniffer": "~2.3",
-            "symfony/css-selector": "~2.1",
-            "symfony/dom-crawler": "~2.1"
+          "phpunit/phpunit": "~4.8"
         },
-        "suggest": {
-            "cache/filesystem-adapter": "For caching certs and tokens (using Google_Client::setCache)"
-        },
-        "time": "2017-07-10T15:34:54+00:00",
+      "time": "2017-07-30T00:20:54+00:00",
         "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "2.x-dev"
-            }
-        },
         "installation-source": "dist",
         "autoload": {
             "psr-0": {
-                "Google_": "src/"
-            },
-            "classmap": [
-                "src/Google/Service/"
-            ]
+              "Google_Service_": "src"
+            }
         },
         "notification-url": "https://packagist.org/downloads/",
         "license": [
@@ -783,54 +838,54 @@
         ]
     },
     {
-        "name": "paypal/rest-api-sdk-php",
-        "version": "1.12.0",
-        "version_normalized": "1.12.0.0",
+      "name": "mailjet/mailjet-apiv3-php",
+      "version": "v1.2.0",
+      "version_normalized": "1.2.0.0",
         "source": {
             "type": "git",
-            "url": "https://github.com/paypal/PayPal-PHP-SDK.git",
-            "reference": "0925b11ee2261fe369f2bd7a6abfc1bf322a6601"
+          "url": "https://github.com/mailjet/mailjet-apiv3-php.git",
+          "reference": "d578bb6edc8cbbf39230d1ce5534427b7172fc7f"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/paypal/PayPal-PHP-SDK/zipball/0925b11ee2261fe369f2bd7a6abfc1bf322a6601",
-            "reference": "0925b11ee2261fe369f2bd7a6abfc1bf322a6601",
+          "url": "https://api.github.com/repos/mailjet/mailjet-apiv3-php/zipball/d578bb6edc8cbbf39230d1ce5534427b7172fc7f",
+          "reference": "d578bb6edc8cbbf39230d1ce5534427b7172fc7f",
             "shasum": ""
         },
         "require": {
-            "ext-curl": "*",
-            "ext-json": "*",
-            "php": ">=5.3.0",
-            "psr/log": "^1.0.0"
+          "guzzlehttp/guzzle": "~6.0|~5.3",
+          "php": ">=5.4.0"
         },
         "require-dev": {
-            "phpunit/phpunit": "3.7.*"
+          "phpunit/phpunit": "^4.8"
         },
-        "time": "2017-07-11T19:16:53+00:00",
+      "time": "2017-05-22T12:38:16+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
             "psr-0": {
-                "PayPal": "lib/"
+              "Mailjet": "src/"
             }
         },
         "notification-url": "https://packagist.org/downloads/",
         "license": [
-            "Apache-2.0"
+          "MIT"
         ],
         "authors": [
             {
-                "name": "PayPal",
-                "homepage": "https://github.com/paypal/rest-api-sdk-php/contributors"
+              "name": "Mailjet",
+              "email": "dev@mailjet.com",
+              "homepage": "https://dev.mailjet.com"
             }
         ],
-        "description": "PayPal's PHP SDK for REST APIs",
-        "homepage": "http://paypal.github.io/PayPal-PHP-SDK/",
+      "description": "PHP wrapper for the Mailjet API",
+      "homepage": "https://github.com/mailjet/mailjet-apiv3-php/",
         "keywords": [
-            "payments",
-            "paypal",
-            "rest",
-            "sdk"
+          "Mailjet",
+          "api",
+          "email",
+          "php",
+          "v3"
         ]
     }
 ]

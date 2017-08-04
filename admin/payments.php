@@ -146,8 +146,8 @@ if(isset($_GET['proceed']) || isset($_SESSION['refurl'])=='createTrip'){
                                 <b class="caret"></b>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="settings.php"><i class="ti-settings"></i> Settings</a></li>
-                                <li><a href="#"><i  class="fa fa-sign-out"></i> Logout</a></li>
+                                <li><a href="settings.php"><i class="ti-settings"></i> Profile</a></li>
+                                <li><a href="../bus/signout.php"><i class="fa fa-sign-out"></i> Logout</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -197,12 +197,15 @@ if(isset($_GET['proceed']) || isset($_SESSION['refurl'])=='createTrip'){
                                                 ->setData($data)
                                                 ->exec();
                                             $tz=new DateTimeZone('Africa/Nairobi');
-                                            foreach ($results['result'] as $result) {
-                                                $date=$result->PaymentDate;
-                                                $date=new DateTime($date);
-                                                $date=$date->setTimezone($tz);
-                                                $date=$date->format('d - M, Y h:m:s A');
-                                                echo "<tr>
+                                            if ($results['count'] == 0) {
+
+                                            } else {
+                                                foreach ($results['result'] as $result) {
+                                                    $date = $result->PaymentDate;
+                                                    $date = new DateTime($date);
+                                                    $date = $date->setTimezone($tz);
+                                                    $date = $date->format('d - M, Y h:m:s A');
+                                                    echo "<tr>
                                                   <td>$result->UQPID</td>
                                                   <td>$result->PayerEmail</td>
                                                   <td>$result->Invoice</td>
@@ -214,6 +217,7 @@ if(isset($_GET['proceed']) || isset($_SESSION['refurl'])=='createTrip'){
                                                   <td>$result->Currency</td>
                                                   <td>$date</td>
                                                 </tr>";
+                                                }
                                             }
                                             ?>
                                             </tbody>

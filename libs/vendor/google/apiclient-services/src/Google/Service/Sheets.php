@@ -151,6 +151,14 @@ class Google_Service_Sheets extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
+                  'responseValueRenderOption' => array(
+                      'location' => 'query',
+                      'type' => 'string',
+                  ),
+                  'insertDataOption' => array(
+                      'location' => 'query',
+                      'type' => 'string',
+                  ),
                 'valueInputOption' => array(
                   'location' => 'query',
                   'type' => 'string',
@@ -162,14 +170,6 @@ class Google_Service_Sheets extends Google_Service
                 'includeValuesInResponse' => array(
                   'location' => 'query',
                   'type' => 'boolean',
-                ),
-                'responseValueRenderOption' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'insertDataOption' => array(
-                  'location' => 'query',
-                  'type' => 'string',
                 ),
               ),
             ),'batchClear' => array(
@@ -248,10 +248,6 @@ class Google_Service_Sheets extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'majorDimension' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'dateTimeRenderOption' => array(
                   'location' => 'query',
                   'type' => 'string',
@@ -260,6 +256,10 @@ class Google_Service_Sheets extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
+                  'majorDimension' => array(
+                      'location' => 'query',
+                      'type' => 'string',
+                  ),
               ),
             ),'update' => array(
               'path' => 'v4/spreadsheets/{spreadsheetId}/values/{range}',

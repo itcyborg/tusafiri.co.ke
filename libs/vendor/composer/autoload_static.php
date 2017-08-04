@@ -92,6 +92,13 @@ class ComposerStaticInitdfe0751dc71037c956a2506809fac73d
                 0 => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib',
             ),
         ),
+        'M' =>
+            array(
+                'Mailjet' =>
+                    array(
+                        0 => __DIR__ . '/..' . '/mailjet/mailjet-apiv3-php/src',
+                    ),
+            ),
         'G' => 
         array (
             'Google_Service_' => 

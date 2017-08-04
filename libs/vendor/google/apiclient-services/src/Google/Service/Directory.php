@@ -292,7 +292,22 @@ class Google_Service_Directory extends Google_Service
                   'type' => 'string',
                 ),
               ),
-            ),'patch' => array(
+              ), 'moveDevicesToOu' => array(
+                  'path' => 'customer/{customerId}/devices/chromeos/moveDevicesToOu',
+                  'httpMethod' => 'POST',
+                  'parameters' => array(
+                      'customerId' => array(
+                          'location' => 'path',
+                          'type' => 'string',
+                          'required' => true,
+                      ),
+                      'orgUnitPath' => array(
+                          'location' => 'query',
+                          'type' => 'string',
+                          'required' => true,
+                      ),
+                  ),
+              ),'patch' => array(
               'path' => 'customer/{customerId}/devices/chromeos/{deviceId}',
               'httpMethod' => 'PATCH',
               'parameters' => array(

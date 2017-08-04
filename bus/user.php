@@ -124,7 +124,7 @@ if(isset($_GET['proceed']) || isset($_SESSION['refurl'])=='createTrip'){
                         <span class="icon-bar bar2"></span>
                         <span class="icon-bar bar3"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Payments</a>
+                    <a class="navbar-brand" href="#">User</a>
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
@@ -141,8 +141,8 @@ if(isset($_GET['proceed']) || isset($_SESSION['refurl'])=='createTrip'){
                                 <b class="caret"></b>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="settings.php"><i class="ti-settings"></i> Settings</a></li>
-                                <li><a href="#"><i  class="fa fa-sign-out"></i> Logout</a></li>
+                                <li><a href="settings.php"><i class="ti-settings"></i> Profile</a></li>
+                                <li><a href="signout.php"><i class="fa fa-sign-out"></i> Logout</a></li>
                             </ul>
                         </li>
                     </ul>

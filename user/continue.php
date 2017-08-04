@@ -48,7 +48,7 @@ if(isset($_GET['from'],$_GET['complete'],$_GET['payment'],$_GET['PaymentID'])){
         $_SESSION['return_to']='../user/';
     }
     $return=$_SESSION['return_to'];
-    $msg="Payment Complete.<br> A mail will be sent to your email address once it has been verified.<br><b>Payment ID:<i>".$_GET['PaymentID'] ."</i></b><hr><a href='$return' class='btn btn-primary'><i class='glyphicon glyphicon-chevron-left'></i> Go Back Home</a> ";
+    $msg = "Payment Complete.<br> A mail will be sent to your email address once it has been verified.<br><i>Note: If payment was made via paypal, the verification will be sent to their emails associated to paypal.</i><br><b>Payment ID:<i>" . $_GET['PaymentID'] . "</i></b><hr><a href='$return' class='btn btn-primary'><i class='glyphicon glyphicon-chevron-left'></i> Go Back Home</a> ";
 }
 function generateID(){
     $idkeyspace='ABCDEFGHIJKLMNPQRSTUVWXYZ123456789';

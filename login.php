@@ -1,8 +1,5 @@
 <?php
 @session_start();
-if(isset($_SESSION['user']) && isset($_SESSION['id'])){
-    header('Location:user/');
-}
 ?>
 <!DOCTYPE html>
 <!--[if lt IE 7]>
@@ -100,15 +97,23 @@ if(isset($_SESSION['user']) && isset($_SESSION['id'])){
                 if(isset($_SESSION['registration'])==true){
                     echo "<div class='alert alert-success text-center'>Registration successful. Please Login to continue.</div>";
                 }
+            if (isset($_SESSION['access_token'])) {
+                echo "<div class='alert alert-success text-center'>You are signed in using google. You will be redirected shorly</div>";
+            }
             ?>
+            <div id="statusLogin"></div>
             <div class="col-md-12 to-animate">
                 <form action="functions/constructor.php" method="post" class="col-md-6 col-lg-offset-2 col-md-offset-2 col-lg-6 col-sm-12">
                     Email
                     <input type="email" required name="email" class="form-control" placeholder="Email"><br>
                     Password
                     <input type="password" required name="password" class="form-control" placeholder="Password"><br>
-                    <button name="login" class="btn btn-primary pull-right">Login</button>
-                    <div class="g-signin2" data-onsuccess="onSignIn"></div>
+                    <div class="row"><a href="reset.php">Forgot Password?</a></div>
+                    <hr>
+                    <div class="row">
+                        <button name="login" class="btn btn-primary pull-right">Login</button>
+                        <div class="g-signin2" data-onsuccess="onSignIn"></div>
+                    </div>
                 </form>
             </div>
         </div>
@@ -205,11 +210,9 @@ if(isset($_SESSION['user']) && isset($_SESSION['id'])){
         });
     }
     function onSignIn(User) {
+        $('#statusLogin').html("<div class='alert alert-success text-center'>You are signed in using google. You will be redirected shorly</div>");
         var token=User.getAuthResponse().id_token;
         var profile = User.getBasicProfile();
-        //console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-        //console.log('Name: ' + profile.getName());
-        //console.log('Image URL: ' + profile.getImageUrl());
         var email=profile.getEmail(); // This is null if the 'email' scope is not present.
         signin(email,token,profile.getName());
     }

@@ -136,8 +136,8 @@
                                 <b class="caret"></b>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="settings.php"><i class="ti-settings"></i> Settings</a></li>
-                                <li><a href="signout.php"><i  class="fa fa-sign-out"></i> Logout</a></li>
+                                <li><a href="settings.php"><i class="ti-settings"></i> Profile</a></li>
+                                <li><a href="signout.php"><i class="fa fa-sign-out"></i> Logout</a></li>
                             </ul>
                         </li>
                     </ul>

@@ -31,6 +31,10 @@ class Google_Service_Partners_Resource_Analytics extends Google_Service_Resource
    *
    * @param array $optParams Optional parameters.
    *
+   * @opt_param string requestMetadata.locale Locale to use for the current
+   * request.
+   * @opt_param string requestMetadata.userOverrides.ipAddress IP address to use
+   * instead of the user's geo-located IP address.
    * @opt_param string requestMetadata.experimentIds Experiment IDs the current
    * request belongs to.
    * @opt_param string requestMetadata.trafficSource.trafficSubId Second level
@@ -55,10 +59,6 @@ class Google_Service_Partners_Resource_Analytics extends Google_Service_Resource
    * @opt_param string requestMetadata.trafficSource.trafficSourceId Identifier to
    * indicate where the traffic comes from. An identifier has multiple letters
    * created by a team which redirected the traffic to us.
-   * @opt_param string requestMetadata.locale Locale to use for the current
-   * request.
-   * @opt_param string requestMetadata.userOverrides.ipAddress IP address to use
-   * instead of the user's geo-located IP address.
    * @return Google_Service_Partners_ListAnalyticsResponse
    */
   public function listAnalytics($optParams = array())

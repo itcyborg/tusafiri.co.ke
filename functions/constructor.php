@@ -6,6 +6,9 @@
  * Time: 5:31 PM
  */
 @session_start();
+
+use Mailjet\Resources;
+
 if(isset($_POST['destination']) && !isset($_POST['createTrip'])){
     $destination=trim($_POST['destination']);
     $_SESSION['destination']=$destination;
@@ -77,12 +80,15 @@ if(isset($_POST['register'])) {
     $email = $_POST['email'];
     $password = passHash($_POST['password']);
     $username=$_POST['username'];
+    $company = $_POST['companyName'];
+    $companytel = $_POST['companytel'];
+    $mobile = $_POST['personaltel'];
     $type=$_POST['type'];
     $role=3;
     if($type=="individual"){
         $role=3;
     }else{
-        $role=2;
+        $role = 1;
     }
         //add the class and create a new instance
         require_once "autoload.php";
@@ -104,7 +110,10 @@ if(isset($_POST['register'])) {
             'Password' =>   $password,
             'uniqueID'=>    generateID(),
             'Username'=>$username,
-            'Role'  =>$role
+            'Role' => $role,
+            'Mobile' => $mobile,
+            'Company' => $company,
+            'CompanyTel' => $companytel
         );
 
         //set the conditions if is update,delete or select querys
@@ -447,6 +456,23 @@ if(isset($_POST['tripInfo'])){
     }
 }
 
+if (isset($_POST['jointrip'])) {
+    $trip = $_POST['trip'];
+    $fname = $_POST['fname'];
+    $lname = $_POST['lname'];
+    $contact = $_POST['contact'];
+    $email = $_POST['email'];
+    $gender = $_POST['gender'];
+    $name = $fname . " " . $lname;
+    $response = jointrip(array('id' => $trip, 'name' => $name, 'email' => $email, 'contact' => $contact, 'gender' => $gender));
+    if ($response['status']) {
+        $joinid = $response['joinid'];
+        header("Location: ../finish.php?action=payment&id=$joinid");
+    } else {
+        echo $response['error'];
+    }
+}
+
 if(isset($_POST['TripimageUpload'])){
     if($_SESSION['count']>5){
         $response['msg']='limit reached';
@@ -547,50 +573,6 @@ if(isset($_POST['save']) || isset($_POST['savePost'])){
     }
 }
 
-if(isset($_POST['joinTrip'],$_POST['tripid'])){
-    $id=$_POST['tripid'];
-    $_SESSION['joinTrip']=$id;
-    if(isset($_SESSION['user'],$_SESSION['id'])){
-
-    }else{
-        $response['url']='login.php?from=joinTrip&&id='.$id;
-        $response['redirect']=true;
-        $response['status']=false;
-        echo json_encode($response);
-        die();
-    }
-    $bookid=generateID();
-    require_once "autoload.php";
-    $db=new Db_connector();
-    $data=array(
-        'TripID'=>$id,
-        'BookID'=>$bookid,
-        'UserID'=>$_SESSION['id'],
-        'UQTID'=>$id.$_SESSION['id']
-    );
-    $conn=array('host' => 'localhost', 'dbname' => 'kiboit_tusafiri', 'dbpass' => '{@dE*Zby?llT', 'dbuser' => 'kiboit_tusafiri', 'port' => '3306', 'showerrors' => true);
-    $db->isInsert();
-    $db->setTable('joinedtrips');
-    $db->setDetails($conn);
-    $db->setData($data);
-    $db->exec();
-    if($db->isError()){
-        if($db->getErrorCode()=="23000"){
-            $response['error']="Sorry, you have already joined this trip. Please select another trip.";
-        }else{
-            $response['error']=$db->getMsg();
-        }
-        $response['redirect']=false;
-        $response['status']=false;
-        echo json_encode($response);
-        die();
-    }else{
-        $response['status']=true;
-        $response['url']="/user/finish.php?action=joinTrip&&id=$id&&book=$bookid";
-        echo json_encode($response);
-    }
-}
-
 if(isset($_POST['sendMessage'])){
     @session_start();
     $to=$_POST['to'];
@@ -620,7 +602,11 @@ if(isset($_POST['sendMessage'])){
 if(isset($_POST['ResetpassA'])){
     $id=$_POST['id'];
     $res=resetPassword($id);
-    echo json_encode($res);
+    if (isset($_POST['resetPage']) == "true") {
+        header("Location:../resetComplete.php");
+    } else {
+        echo json_encode($res);
+    }
 }
 
 if(isset($_POST['DeactivateAccount'])){
@@ -752,32 +738,6 @@ function generateID1(){
     return implode($idstr);
 }
 
-function sendMail($to,$msg,$from,$subject=null){
-    require_once "../libs/vendor/autoload.php";
-    //Create a new PHPMailer instance
-    $mail = new PHPMailer;
-    //Set who the message is to be sent from
-    $mail->setFrom($from,'Admin');
-    //Set an alternative reply-to address
-    $mail->addReplyTo('info@tusafiri.co.ke','Info');
-    //Set who the message is to be sent to
-    $mail->addAddress($to,$to);
-    //Set the subject line
-    $mail->Subject = $subject;
-    //Read an HTML message body from an external file, convert referenced images to embedded,
-    //convert HTML into a basic plain-text alternative body
-    $mail->msgHTML($msg);
-    //Replace the plain text body with one created manually
-    $mail->AltBody = $msg;
-
-    //send the message, check for errors
-    if (!$mail->send()) {
-        return "Mailer Error: " . $mail->ErrorInfo;
-    } else {
-        return true;
-    }
-}
-
 function sendMails($to,$touser,$msg,$from,$subject=null){
     require_once "../libs/vendor/autoload.php";
     //Create a new PHPMailer instance
@@ -844,12 +804,30 @@ function resetPassword($email){
     $db->setDetails(array('host' => 'localhost', 'dbname' => 'kiboit_tusafiri', 'dbpass' => '{@dE*Zby?llT', 'dbuser' => 'kiboit_tusafiri', 'port' => '3306', 'showerrors' => true));
     $result=$db->exec();
     $response=null;
+    $msg = "
+        <img src='http://www.tusafiri.co.ke/images/logo.png' style='width: 300px;height:100px;'>
+        <hr>
+        <h3>Password Reset</h3>
+        <p>Hey, $email</p>
+        <p>Your password for tusafiri.co.ke has been reset. Please use the following information to login to account. Please note that the iformation provided has been generated 
+        automatically and it is recommended you change your password once you login via the profile page.
+        <br>
+        <br>
+        <br>
+        <i>
+        Email: 'Your Email'<br>
+        Password: <b>$password</b>
+        </i> 
+        </p>
+        
+        <p><i>If you did not request a password reset, Login to your account using the above info and change yor password.</i></p>
+    ";
     if($db->isError()){
         $response['status']=false;
         $response['error']=$db->getMsg();
         $response['to']=$email;
     }else{
-        $maild=sendMail($email,$password,'admin@tusafiri.co.ke','Password reset');
+        $maild = sendMail($email, $msg, 'admin@tusafiri.co.ke', 'Password reset for ' . $email);
         if($maild) {
             $response['status'] = true;
             $response['to'] = $email;
@@ -862,6 +840,26 @@ function resetPassword($email){
     return $response;
 }
 
+function sendMail($to, $msg, $from, $subject = null)
+{
+    require_once "vendor/autoload.php";
+    require_once "mailer.php";
+    $apikey = '06a822914dbbb469f45b9a9b37e92af7';
+    $apisecret = '1f89d38458d6fef8300f74ea19918b3b';
+
+    $mj = new \Mailjet\Client($apikey, $apisecret);
+    $body = [
+        'FromEmail' => "no-reply@tusafiri.co.ke",
+        'FromName' => explode('@', $from)[0],
+        'Subject' => "$subject",
+        'Text-part' => strip_tags($msg),
+        'Html-part' => "$msg",
+        'Recipients' => [['Email' => $to]]
+    ];
+
+    $response = $mj->post(Resources::$Email, ['body' => $body]);
+    return $response->success();
+}
 function deactivateAccount($email){
     require_once "autoload.php";
     $db=new Db_connector();
@@ -900,5 +898,46 @@ function activateAccount($email){
     }else{
         $response['status']=true;
         return $response;
+    }
+}
+
+function jointrip($array)
+{
+    $id = $array['id'];
+    require_once "autoload.php";
+    $options = array(PDO::ATTR_EMULATE_PREPARES => true, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, INFO_GENERAL);
+    $db = new PDO("mysql:host=localhost;dbname=kiboit_tusafiri", 'kiboit_tusafiri', '{@dE*Zby?llT', $options);
+    $sql1 = "SELECT * FROM trips WHERE UQID='$id'";
+    $max = $db->query($sql1)->fetch(PDO::FETCH_OBJ);
+    $slots = $max->Slots;
+    $sql2 = "SELECT * FROM joinedtrips WHERE TripID='$id'";
+    $res = $db->query($sql2);
+    $bookedslots = $res->rowCount();
+    if ($slots > $bookedslots) {
+        //book the person
+        require_once "autoload.php";
+        $dbs = new Db_connector();
+        $uqid = generateID() . generateID();
+        $dbs->setDetails(array('host' => 'localhost', 'dbname' => 'kiboit_tusafiri', 'dbpass' => '{@dE*Zby?llT', 'dbuser' => 'kiboit_tusafiri', 'port' => '3306', 'showerrors' => true));
+        $dbs->isInsert()
+            ->setTable('joinedtrips')
+            ->setData([
+                'TripID' => $id,
+                'UQTID' => $id . "," . $array['email'],
+                'Email' => $array['email'],
+                'Contact' => $array['contact'],
+                'Name' => $array['name'],
+                'Gender' => $array['gender'],
+                'UQID' => $uqid
+            ]);
+        $dbs->exec();
+        if ($dbs->isError()) {
+            return array('status' => false, 'error' => $dbs->getMsg());
+        } else {
+            return array('status' => true, 'joinid' => $uqid);
+        }
+    } else {
+        //return false
+        return array('status' => false, 'error' => 'Trip is fully booked.');
     }
 }
