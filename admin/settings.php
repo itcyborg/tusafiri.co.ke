@@ -13,10 +13,6 @@
     }else{
         header('location:../login.php');
     }
-    if(isset($_GET['proceed']) || isset($_SESSION['refurl'])=='createTrip'){
-        $_SESSION['proceed']='createTrip';
-        header('location:createTrip.php');
-    }
     $result="";
     require_once "../functions/autoload.php";
     $email=$_SESSION['user'];

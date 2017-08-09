@@ -17,10 +17,6 @@ if(isset($_SESSION['user']) && isset($_SESSION['id'],$_SESSION['role'])){
 }else{
     header('location:../login.php');
 }
-if(isset($_GET['proceed']) || isset($_SESSION['refurl'])=='createTrip'){
-    $_SESSION['proceed']='createTrip';
-    header('location:createTrip.php');
-}
 ?>
 <!doctype html>
 <html lang="en">

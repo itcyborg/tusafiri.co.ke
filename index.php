@@ -95,8 +95,11 @@
             <div class="text-inner">
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
-                        <h1 class="to-animate">PLANNING GROUP ADVENTURES HAS NEVER BEEN THIS EASY</h1>
-                        <h2 class="to-animate">'Plan, Promote,Manage, or Join a Trip instanly' </h2><br><br><br>
+                        <h1 class="to-animate" style="font-size: 300%">PLANNING GROUP ADVENTURES HAS NEVER BEEN THIS
+                            EASY</h1>
+                        <h2 class="to-animate text-center">Plan, Promote,Manage, or Join a Trip instanly </h2>
+                        <br><br><br>
+
                         <div class="to-animate">
                             <div class="call-to-action">
                                 <a href="createTrip.php" class="btn btn-primary" style="text-decoration: none;">Create a trip</a>

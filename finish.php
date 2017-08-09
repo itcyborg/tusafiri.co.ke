@@ -159,7 +159,6 @@ if(isset($_GET['action'])){
                                     <tr>
                                         <td><strong>Item</strong></td>
                                         <td class="text-center"><strong>Price</strong></td>
-                                        <td class="text-center"><strong>Quantity</strong></td>
                                         <td class="text-right"><strong>Totals</strong></td>
                                     </tr>
                                     </thead>
@@ -169,7 +168,6 @@ if(isset($_GET['action'])){
                                         <td><?php echo $tripname;?></td>
                                         <input type="text" name="product" hidden value="<?php echo $tripname;?>">
                                         <td class="text-center"><?php echo $tripamount;?> Kshs</td>
-                                        <td class="text-center">1</td>
                                         <td class="text-right"><?php echo $tripamount;?> Kshs</td>
                                         <input type="number" hidden name="price" value="<?php echo $tripamount;?>">
                                     </tr>

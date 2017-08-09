@@ -146,16 +146,10 @@ function generateID(){
 </header>
 <hr>
 <section id="fh5co-testimony" data-section="contact">
+    <hr>
+    <br>
     <div class="container-fluid">
-        <hr>
-        <div class="pull-right col-md-4 col-lg-5 col-sm-12">
-            <div class="jumbotron">
-                <h2 class="text-center">Guide</h2>
-                <p><b>Pricing: </b>How much are you charging the trip?</p>
-                <p><b>Welcome Message: </b>Send a custom message to participants emails upon registration.</p>
-            </div>
-        </div>
-        <div class="col-md-8 col-lg-7 pull-left col-sm-12">
+        <div class="col-md-8 col-md-offset-1 col-lg-7 pull-left col-sm-12">
             <?php echo $msg;?>
         </div>
     </div>

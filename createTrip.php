@@ -60,6 +60,7 @@ $_SESSION['return_to']=$from;
     <link rel="stylesheet" href="css/owl.theme.default.min.css">
     <!-- Style -->
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="image-picker/image-picker.css">
 
 
     <!-- Modernizr JS -->
@@ -115,10 +116,26 @@ $_SESSION['return_to']=$from;
             <div id="step3">
                 <h3>How can you classify your trip?</h3>
                 <form id="formstep3">
-                    <select class="form-control" required id="category" name="classification">
-                        <option value="">Select classification</option>
-                        <option value="normal">Normal</option>
-                        <option value="featured">Featured</option>
+                    <select class="form-control show-labels" required id="category" name="classification">
+                        <option value="">Select category</option>
+                        <option data-img-src="images/category_Activity.jpeg" data-img-class="first"
+                                data-img-alt="Activity" value="Activity">Activity
+                        </option>
+                        <option data-img-src="images/category_beach.jpeg" data-img-alt="Beach" valu2wwwe="Beach">Beach
+                        </option>
+                        <option data-img-src="images/category_culture.jpg" data-img-alt="Culture" value="Culture">
+                            Culture
+                        </option>
+                        <option data-img-src="images/category_foodwine.jpeg" data-img-alt="Food & Wine"
+                                value="Foodwine">Food & Wine
+                        </option>
+                        <option data-img-src="images/category_nightlife.jpg" data-img-alt="Night Life"
+                                value="Nightlife">Night Life
+                        </option>
+                        <option data-img-src="images/category_safari_nature.jpeg" data-img-alt="Safari & Nature"
+                                value="SafariNature">Safari & Nature
+                        </option>
+                        <option data-img-src="images/category_yoga.jpeg" data-img-alt="Yoga" value="Yoga">Yoga</option>
                     </select><br>
                     <input type="submit" id="continue3" name="continue3" value="Continue >" class="btn btn-primary pull-right">
                 </form>
@@ -131,6 +148,26 @@ $_SESSION['return_to']=$from;
                     <input type="submit" name="continue4" id="continue4" value="Continue >" class="btn btn-primary pull-right">
                 </form>
                 <button name="back3" id="back3" onclick="back('step3','step4')" class="btn btn-primary pull-left">< Back</button>
+            </div>
+            <div id="step5">
+                <form id="formstep5">
+                    <div class="form-group">
+                        Registration Deadline
+                        <input type="date" name="registrationdeadline">
+                    </div>
+                    <div class="form-group">
+                        Meeting Time
+                        <input type="Date" name="meetingtime">
+                    </div>
+                    <div class="row form-inline">From <input required type="date" id="fromdate" class="form-control"> to
+                        <input required class="form-control" id="todate" type="date"></div>
+                    <br>
+                    <input type="submit" name="continue5" id="continue5" value="Continue >"
+                           class="btn btn-primary pull-right">
+                </form>
+                <button name="back4" id="back4" onclick="back('step4','step5')" class="btn btn-primary pull-left"><
+                    Back
+                </button>
             </div>
         </div>
     </div>
@@ -184,9 +221,11 @@ $_SESSION['return_to']=$from;
 <!-- Main JS (Do not remove) -->
 <script src="js/main.js"></script>
 
+<script src="image-picker/image-picker.js"></script>
+
 <script type="text/javascript">
     $('document').ready(function(){
-        $('#step2,#step3,#step4').hide();
+        $('#step2,#step3,#step4,#step5').hide();
         $('#formstep1').submit(function(e){
             e.preventDefault();
             var location=$('#location').val();
@@ -278,7 +317,6 @@ $_SESSION['return_to']=$from;
                 success:function(data){
                     if(data.status){
                         $('#step4').fadeOut();
-                        window.location.href=data.url;
                     }else{
                         alert("An error occured. Please try again");
                     }
@@ -287,12 +325,44 @@ $_SESSION['return_to']=$from;
                 $('#step4').fadeOut();
             }
         });
+
+        $('#formstep5').submit(function (d) {
+            d.preventDefault();
+            var deadline = $('#registrationdeadline').val();
+            var meetingtime = $('#meetingtime').val();
+            $.ajax({
+                url: 'functions/constructor.php',
+                data: {
+                    'meetinganddeadline': 1,
+                    'meetingtime': meetingtime,
+                    'deadline': deadline
+                },
+                type: 'POST',
+                dataType: 'json',
+                beforeSend: function () {
+                },
+                success: function (data) {
+                    if (data.status) {
+                        $('#step5').fadeOut();
+                        window.location.href = data.url;
+                    } else {
+                        alert("An error occured. Please try again");
+                    }
+                }
+            });
+            $('#step5').fadeOut();
+        }
+    });
     });
 
     function back(step,prev) {
         $('#'+prev).fadeOut();
         $('#'+step).fadeIn();
     }
+
+    $('#category').imagepicker({
+        show_label: true
+    });
 </script>
 
 </body>

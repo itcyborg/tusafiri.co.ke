@@ -56,6 +56,18 @@ if(isset($_POST['schedule']) && !isset($_POST['createTrip'])){
     }
 }
 
+if (isset($_POST['meetinganddeadline'])) {
+    $meetingtime = $_POST['meetingtime'];
+    $deadline = $_POST['deadline'];
+    $_SESSION['meetingtime'] = $meetingtime;
+    $_SESSION['deadline'] = $deadline;
+    if (trim($deadline) != "" && trim($meetingtime) != "") {
+        echo json_encode(array('status' => true, 'url' => 'index.php?proceed=true'));
+    } else {
+        echo json_encode(array('status' => false));
+    }
+}
+
 if(isset($_POST['removePhoto'])){
     $url=$_POST['id'];
     if(unlink($url)){
@@ -403,14 +415,14 @@ if(isset($_POST['createTrip'])){
     $data = array(
         'UQID'          =>  $uqid,
         'Name'          =>  $name,
-        'Classification'=>  $_SESSION['tripcategory'],
+        'Category' => $_SESSION['tripcategory'],
         'Destination'   =>  $_SESSION['destination'],
         'StartDate'     =>  $from,
         'FinishDate'    =>  $to,
         'MeetingPoint'  =>  $meeting,
         'Slots'         =>  $slots,
         'Photos'        =>  $uploads,
-        'ByUser'            =>  $_SESSION['id']
+        'ByUser' => $_SESSION['id']
     );
 
     //pass the data
@@ -428,10 +440,6 @@ if(isset($_POST['createTrip'])){
         $_SESSION['files']="";
         header('location:../user/tripDescription.php?id='.$id);
     }
-
-    //echo $db->getMsg();
-    //view the response
-    //echo $res;
 }
 
 if(isset($_POST['tripInfo'])){
@@ -695,6 +703,26 @@ if(isset($_POST['getAccount'])){
     echo json_encode($response);
 }
 
+if (isset($_POST['getDestinations'])) {
+    require_once "autoload.php";
+    $db = new Db_connector();
+    $db->setDetails(array('host' => 'localhost', 'dbname' => 'kiboit_tusafiri', 'dbpass' => '{@dE*Zby?llT', 'dbuser' => 'kiboit_tusafiri', 'port' => '3306', 'showerrors' => true));
+    $db->isSelect()
+        ->setTable('trips')
+        ->setData(array('*'));
+    $result = $db->exec();
+    $options = "";
+    if ($result['count'] > 0) {
+        $results = $result['result'];
+        foreach ($results as $item) {
+            $option .= "<option value='$item->Destination'>$item->Destination</option>";
+        }
+        echo json_encode(array('status' => true, 'options' => $option));
+    } else {
+        echo json_encode(array('status' => false));
+    }
+}
+
 function passHash($password)
 {
     $options = [
@@ -789,7 +817,6 @@ function sendMessage($to,$name,$msg,$from,$subject=null){
         return true;
     }
 }
-
 
 function resetPassword($email){
     $password=generateID1();
