@@ -12,6 +12,15 @@
     if(isset($_SESSION['joinTrip'])){
         header('location:continue.php?from=joinTrip&&id='.$_SESSION['joinTrip']);
     }
+
+    $db=new PDO("mysql:host=localhost;dbname=kiboit_tusafiri", 'kiboit_tusafiri','{@dE*Zby?llT' );
+    $sql="SELECT trips.*,users.* FROM trips JOIN users ON users.uniqueID=trips.ByUser WHERE trips.Post='YES' LIMIT 10";
+    $page=1;
+    $pages;
+    $data="";
+    $result=$db->query($sql);
+    $data=$result->fetchAll(PDO::FETCH_OBJ);
+?>
 ?>
 <!DOCTYPE html>
 <!--[if lt IE 7]>
@@ -65,6 +74,11 @@
     <link rel="stylesheet" href="../css/owl.theme.default.min.css">
     <!-- Style -->
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/imagepop.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
 
 
 </head>
@@ -89,7 +103,8 @@ if(isset($_SESSION['google'])){
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#"><span>My Trips</span></a></li>
+                    <li><a href="organisedtrips.php"><span>My Organised Trips</span></a></li>
+                    <li><a href="mytrips.php"><span>My Trips</span></a></li>
                     <li><a class="external" href="login.php"></a></li>
                     <li class="dropdown" style="display: inline-block">
                         <a href="#" data-toggle="dropdown" class="dropdown-toggle external"><i class="icon-user"></i><b class="caret"></b></a>
@@ -126,15 +141,68 @@ if(isset($_SESSION['google'])){
     </div>
 </section>
 
+<section id="fh5co-explore" data-section="explore">
+    <br>
+    <div class="gradient text-center">
+        <h1 class="media-heading section-heading">Featured Trips</h1>
+    </div>
+    <div class="container-fluid to-animate">
+        <div class="col-md-12 col-lg-12 col-sm-12">
+            <?php
+            function limit_text($text, $limit) {
+                if (str_word_count($text, 0) > $limit) {
+                    $words = str_word_count($text, 2);
+                    $pos = array_keys($words);
+                    $text = substr($text, 0, $pos[$limit]) . '...';
+                }
+                return $text;
+            }
+            foreach ($data as $result){
+                if($result->Classification=="featured") {
+                    $images = $result->Photos;
+                    $date = date('d M', strtotime($result->StartDate));
+                    $stopdate = date('d M, Y', strtotime($result->FinishDate));
+                    $photo = explode(',', $images)[0];
+                    $info=limit_text(strip_tags($result->Info),30);
+                    echo "
+                            <a href='showtrips.php?id=$result->UQID'><div class='col-md-4 col-lg-4 col-sm-12 col-xs-12' style='margin-bottom:20px;'>
+                                <div class='card'>
+                                    <img src='$photo'>
+                                    <div class='header'>
+                                        <h4><span class='fa fa-plane'></span> $date - $stopdate</h4>
+                                    </div>
+                                    <div class='footer'>
+                                        <h3>$result->Name</h3>
+                                        <div class='row'><div class='col-md-8'> <h4><span class='fa fa-map-marker'></span> $result->Destination</h4></div><div class='col-md-4'><span class='fa fa-user'></span> $result->Username</div> </div>
+                                    </div>
+                                    <div class='details'>
+                                        <div>
+                                                <h5 class='tcolor'>Details</h5>
+                                                <p class='tcolor'>$info</p>
+                                                <hr>
+                                                <h4 class='tcolor'><b>Cost: </b> $result->Amount KSHS</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            </a>
+                            ";
+                }
+            }
+            ?>
+        </div>
+    </div>
+</section>
+
 <div class="getting-started getting-started-2">
     <div class="container">
         <div class="row">
             <div class="col-md-6 to-animate">
-                <h3>Register</h3>
+                <h3>My Trips</h3>
             </div>
             <div class="col-md-6 to-animate-2">
-                <div class="call-to-action text-right">
-                    <a href="#" class="sign-up">Register</a>
+                <div class="call-to-actison text-right">
+                    <a href="mytrips.php" class="sign-up btn btn-primary btn-lg">My Trips</a>
                 </div>
             </div>
         </div>
@@ -154,10 +222,11 @@ if(isset($_SESSION['google'])){
             <div class="col-md-4 col-sm-12 col-lg-3 col-lg">
                 <h3 class="section-title">Connect with Us</h3>
                 <ul class="social-media">
-                    <li><a href="#" class="facebook"><i class="icon-facebook"></i></a></li>
-                    <li><a href="#" class="twitter"><i class="icon-twitter"></i></a></li>
-                    <li><a href="#" class="dribbble"><i class="icon-dribbble"></i></a></li>
-                    <li><a href="#" class="github"><i class="icon-github-alt"></i></a></li>
+                    <li><a href="https://www.facebook.com/Tusafiri_KE" class="facebook"><i class="icon-facebook"></i></a></li>
+                    <li><a href="https://www.twitter.com/Tusafiri_KE" class="twitter"><i class="icon-twitter"></i></a></li>
+                    <li><a href="https://www.instagram.com/Tusafiri_KE/" class="instagram"><i class="icon-instagram"></i></a></li>
+                    <li><a href="https://www.youtube.com/user/TusafiriPlanner" class="youtube"><i class="icon-social-youtube"></i></a></li>
+                    <li><a href="mailto:helpdesk@tusafiri.co.ke"><i class="icon-help2"></i></a></li>
                 </ul>
             </div>
         </div>

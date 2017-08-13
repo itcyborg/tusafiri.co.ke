@@ -166,56 +166,56 @@ if(isset($_SESSION['user']) && isset($_SESSION['id'],$_SESSION['role'])){
                                     <div class="col-lg-12 col-sm-12 col-md-12 table-responsive">
                                         <table id="userstable" class="col-sm-12 col-lg-12 col-md-12 table table-bordered table-condensed">
                                             <thead>
-                                            <tr>
-                                                <th>PaymentID</th>
-                                                <th>Email</th>
-                                                <th>Invoice</th>
-                                                <th>Item</th>
-                                                <th>Status</th>
-                                                <th>Payment Type</th>
-                                                <th>Payer</th>
-                                                <th>Amount</th>
-                                                <th>Currency</th>
-                                                <th>Date</th>
-                                            </tr>
+                                                <tr>
+                                                    <th>PaymentID</th>
+                                                    <th>Email</th>
+                                                    <th>Invoice</th>
+                                                    <th>Item</th>
+                                                    <th>Status</th>
+                                                    <th>Payment Type</th>
+                                                    <th>Payer</th>
+                                                    <th>Amount</th>
+                                                    <th>Currency</th>
+                                                    <th>Date</th>
+                                                </tr>
                                             </thead>
                                             <tbody>
-                                            <?php
-                                            require_once "../functions/autoload.php";
-                                            $db=new Db_connector();
-                                            $data=array(
-                                                '*'
-                                            );
-                                            $conn=array('host' => 'localhost', 'dbname' => 'kiboit_tusafiri', 'dbpass' => '{@dE*Zby?llT', 'dbuser' => 'kiboit_tusafiri', 'port' => '3306', 'showerrors' => true);
-                                            $db->setDetails($conn);
-                                            $results=$db->setTable('payments')
-                                                ->isSelect()
-                                                ->setData($data)
-                                                ->exec();
-                                            $tz=new DateTimeZone('Africa/Nairobi');
-                                            if ($results['count'] == 0) {
+                                                <?php
+                                                    require_once "../functions/autoload.php";
+                                                    $db=new Db_connector();
+                                                    $data=array(
+                                                        '*'
+                                                    );
+                                                    $conn=array('host' => 'localhost', 'dbname' => 'kiboit_tusafiri', 'dbpass' => '{@dE*Zby?llT', 'dbuser' => 'kiboit_tusafiri', 'port' => '3306', 'showerrors' => true);
+                                                    $db->setDetails($conn);
+                                                    $results=$db->setTable('payments')
+                                                        ->isSelect()
+                                                        ->setData($data)
+                                                        ->exec();
+                                                    $tz=new DateTimeZone('Africa/Nairobi');
+                                                    if ($results['count'] == 0) {
 
-                                            } else {
-                                                foreach ($results['result'] as $result) {
-                                                    $date = $result->PaymentDate;
-                                                    $date = new DateTime($date);
-                                                    $date = $date->setTimezone($tz);
-                                                    $date = $date->format('d - M, Y h:m:s A');
-                                                    echo "<tr>
-                                                  <td>$result->UQPID</td>
-                                                  <td>$result->PayerEmail</td>
-                                                  <td>$result->Invoice</td>
-                                                  <td>$result->Item</td>
-                                                  <td>$result->PStatus</td>
-                                                  <td>$result->PaymentType</td>
-                                                  <td>$result->PaymentBy</td>
-                                                  <td>$result->Amount</td>
-                                                  <td>$result->Currency</td>
-                                                  <td>$date</td>
-                                                </tr>";
-                                                }
-                                            }
-                                            ?>
+                                                    } else {
+                                                        foreach ($results['result'] as $result) {
+                                                            $date = $result->PaymentDate;
+                                                            $date = new DateTime($date);
+                                                            $date = $date->setTimezone($tz);
+                                                            $date = $date->format('d - M, Y h:m:s A');
+                                                            echo "  <tr>
+                                                                      <td>$result->UQPID</td>
+                                                                      <td>$result->PayerEmail</td>
+                                                                      <td>$result->Invoice</td>
+                                                                      <td>$result->Item</td>
+                                                                      <td>$result->PStatus</td>
+                                                                      <td>$result->PaymentType</td>
+                                                                      <td>$result->PaymentBy</td>
+                                                                      <td>$result->Amount</td>
+                                                                      <td>$result->Currency</td>
+                                                                      <td>$date</td>
+                                                                    </tr>";
+                                                        }
+                                                    }
+                                                ?>
                                             </tbody>
                                         </table>
                                     </div>

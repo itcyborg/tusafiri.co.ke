@@ -26,20 +26,6 @@
     <meta name="keywords" content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive"/>
     <meta name="author" content="FREEHTML5.CO"/>
 
-    <!--
-      //////////////////////////////////////////////////////
-
-      FREE HTML5 TEMPLATE
-      DESIGNED & DEVELOPED by FREEHTML5.CO
-
-      Website: 		http://freehtml5.co/
-      Email: 			info@freehtml5.co
-      Twitter: 		http://twitter.com/fh5co
-      Facebook: 		https://www.facebook.com/fh5co
-
-      //////////////////////////////////////////////////////
-       -->
-
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <link rel="shortcut icon" href="favicon.ico">
 
@@ -88,22 +74,21 @@
     </div>
 </header>
 
-<section class="home" id="fh5co-home" data-section="home">
+<section class="home" id="fh5co-home" data-section="home" style="min-height: 500px; height:500px;">
     <div class="gradient"></div>
-    <div class="container">
+    <div class="container" style="padding:0;">
         <div class="text-wrap">
             <div class="text-inner">
-                <div class="row">
-                    <div class="col-md-8 col-md-offset-2">
-                        <h1 class="to-animate" style="font-size: 300%">PLANNING GROUP ADVENTURES HAS NEVER BEEN THIS
-                            EASY</h1>
+                <div class="col-md-12 col-lg-12">
+                    <div class="col-md-6 col-lg-6">
+                        <h1 class="to-animate" style="font-size: 200%">PLANNING GROUP ADVENTURES HAS NEVER BEEN THIS EASY</h1>
                         <h2 class="to-animate text-center">Plan, Promote,Manage, or Join a Trip instanly </h2>
-                        <br><br><br>
-
+                    </div>
+                    <div class="col-md-6 col-lg-6">
                         <div class="to-animate">
                             <div class="call-to-action">
-                                <a href="createTrip.php" class="btn btn-primary" style="text-decoration: none;">Create a trip</a>
-                                <a href="trips.php" class="btn btn-primary" style="text-decoration: none;">Join a Trip</a>
+                                <a href="createTrip.php" class="btn btn-primary" style="text-decoration: none;margin: 5px;padding:8px;">Create a trip</a>
+                                <a href="trips.php" class="btn btn-primary" style="text-decoration: none;margin: 5px;padding:8px;">Join a Trip</a>
                             </div>
                         </div>
                     </div>
@@ -115,9 +100,8 @@
 
 
 <section id="fh5co-explore" data-section="explore">
-    <br>
     <div class="gradient text-center">
-        <h1 class="media-heading section-heading">Featured Trips</h1>
+        <h1 class="media-heading section-heading" style="magin-bottom:0; padding-bottom:10px; ">Featured Trips</h1>
     </div>
     <div class="container-fluid to-animate">
         <div class="col-md-12 col-lg-12 col-sm-12">
@@ -192,7 +176,6 @@
                 <a href="contact.html">Contacts</a><br>
                 <a href="press.html">Press</a>
             </div>
-            <br>
             <div class="col-md-4 col-sm-12 col-lg-3 col-lg">
                 <h3 class="section-title">Connect with Us</h3>
                 <ul class="social-media">

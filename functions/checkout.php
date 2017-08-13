@@ -94,9 +94,15 @@ if(isset($_POST['paymentmethod'])){
         header("location:{$approvalUrl}");
 
     } elseif ($method == "Mpesa") {
+        $email=$_POST['email'];
         $invoice = $_POST['invoice'];
         $price = $_POST['price'];
         $product = $_POST['product'];
-        header("Location:../app/mpesa.php?invoice=$invoice&fnd=$price&price=$price");
+        $details=$_POST['trippayment'];
+        $urlx="";
+        if($details=="trippayment"){
+            $urlx="&&form=trip";
+        }
+        header("Location:../app/mpesa.php?invoice=$invoice&fnd=$price&price=$price&&email=$email".$urlx);
     }
 }

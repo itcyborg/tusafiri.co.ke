@@ -165,10 +165,11 @@ $trip=$res['result'];
             <div class="col-md-4 col-sm-12 col-lg-3 col-lg">
                 <h3 class="section-title">Connect with Us</h3>
                 <ul class="social-media">
-                    <li><a href="#" class="facebook"><i class="icon-facebook"></i></a></li>
-                    <li><a href="#" class="twitter"><i class="icon-twitter"></i></a></li>
-                    <li><a href="#" class="dribbble"><i class="icon-dribbble"></i></a></li>
-                    <li><a href="#" class="github"><i class="icon-github-alt"></i></a></li>
+                    <li><a href="https://www.facebook.com/Tusafiri_KE" class="facebook"><i class="icon-facebook"></i></a></li>
+                    <li><a href="https://www.twitter.com/Tusafiri_KE" class="twitter"><i class="icon-twitter"></i></a></li>
+                    <li><a href="https://www.instagram.com/Tusafiri_KE/" class="instagram"><i class="icon-instagram"></i></a></li>
+                    <li><a href="https://www.youtube.com/user/TusafiriPlanner" class="youtube"><i class="icon-social-youtube"></i></a></li>
+                    <li><a href="mailto:helpdesk@tusafiri.co.ke"><i class="icon-help2"></i></a></li>
                 </ul>
             </div>
         </div>

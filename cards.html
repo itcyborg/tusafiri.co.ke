@@ -1,0 +1,142 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex, nofollow">
+
+    <title>Hotel - Bootsnipp.com</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link rel="stylesheet" href="test.css">
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <nav class="navbar navbar-default" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Brand</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Link</a></li>
+                    <li><a href="#">Link</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">Separated link</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">One more separated link</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="col-sm-3 col-md-3">
+                    <form class="navbar-form" role="search">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Search" name="q">
+                            <div class="input-group-btn">
+                                <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">Link</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">Separated link</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </nav>
+    </div>
+    <div class="row">
+        <h2>Carousel with text and transition timer.</h2>
+    </div>
+
+
+    <div class="container text-center">
+        <hr />
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="col-md-3">
+                    <ul class="nav nav-pills nav-stacked">
+                        <li><a href="#">About us</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <ul class="nav nav-pills nav-stacked">
+                        <li><a href="#">Product for Mac</a></li>
+                        <li><a href="#">Product for Windows</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <ul class="nav nav-pills nav-stacked">
+                        <li><a href="#">Web analytics</a></li>
+                        <li><a href="#">Presentations</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <ul class="nav nav-pills nav-stacked">
+                        <li><a href="#">Product Help</a></li>
+                        <li><a href="#">Developer API</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-lg-12">
+                <ul class="nav nav-pills nav-justified">
+                    <li><a href="/">© 2013 Company Name.</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Privacy</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function() {
+        //Events that reset and restart the timer animation when the slides change
+        $("#transition-timer-carousel").on("slide.bs.carousel", function(event) {
+            //The animate class gets removed so that it jumps straight back to 0%
+            $(".transition-timer-carousel-progress-bar", this)
+                .removeClass("animate").css("width", "0%");
+        }).on("slid.bs.carousel", function(event) {
+            //The slide transition finished, so re-add the animate class so that
+            //the timer bar takes time to fill up
+            $(".transition-timer-carousel-progress-bar", this)
+                .addClass("animate").css("width", "100%");
+        });
+
+        //Kick off the initial slide animation when the document is ready
+        $(".transition-timer-carousel-progress-bar", "#transition-timer-carousel")
+            .css("width", "100%");
+    });
+</script>
+</body>
+</html>

@@ -18,7 +18,7 @@ body {
   line-height: 1.5;
   color: #666666;
   color: #7f7f7f;
-  background: #fff;
+  background: #fff; 
   height: 100%;
   position: relative;
 }
@@ -323,6 +323,7 @@ h1, h2, h3, h4, h5, h6 {
   height: 900px;
 }
 #fh5co-home .text-wrap {
+  padding-top:5%;
   display: table;
   width: 100%;
   position: relative;
@@ -330,8 +331,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 #fh5co-home .text-inner {
   display: table-cell;
-  vertical-align: middle;
-  text-align: center;
+  padding-top:8%;
 }
 #fh5co-home .text-inner h1 {
   font-size: 38px;
@@ -342,7 +342,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 #fh5co-home .text-inner h2 {
   font-size: 20px;
-  line-height: 30px;
+  line-height: 5px;
   font-weight: 300;
   color: rgba(255, 255, 255, 0.8);
   margin: 0 0 60px 0;
@@ -386,7 +386,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #fh5co-services, #fh5co-testimony, #fh5co-explore, #fh5co-faq, #fh5co-team, #fh5co-trusted, #fh5co-footer {
-  padding: 5em 0;
+  padding: 2em 0;
 }
 @media screen and (max-width: 768px) {
   #fh5co-services, #fh5co-testimony, #fh5co-explore, #fh5co-faq, #fh5co-team, #fh5co-trusted, #fh5co-footer {

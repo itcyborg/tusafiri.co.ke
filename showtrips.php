@@ -55,6 +55,9 @@ if(isset($_GET['user'])){
         $tripid = $_GET['id'];
         $db = new PDO("mysql:host=localhost;dbname=kiboit_tusafiri", 'kiboit_tusafiri', '{@dE*Zby?llT');
         $sql = "SELECT trips.*,users.Username,users.FullName,users.uniqueID,users.Email,users.ProfPic FROM trips JOIN users ON users.uniqueID=trips.ByUser WHERE trips.Post='YES' && trips.UQID='$tripid'";
+        $sql1="SELECT * from paidtrips WHERE TripID='$tripid'";
+        $pcount=$db->query($sql1);
+        $pcount=$pcount->rowCount();
         $res = $db->query($sql);
         if ($res->rowCount() == 1) {
             $result = $res->fetch(PDO::FETCH_OBJ);
@@ -76,6 +79,7 @@ if(isset($_GET['user'])){
             $meetingPoint=$result->MeetingPoint;
             $indicators="";
             $pics="";
+            $byuser=$result->ByUser;
             $meetingTime=date('d-M-Y',strtotime($result->MeetingTime));
             $deadline=date('d-M-Y',strtotime($result->Deadline));
             $images = "";
@@ -231,7 +235,18 @@ if(isset($_GET['user'])){
                     </h4>
                     <h4>Capacity: <?php echo $slots; ?></h4>
                     <h4>Registration Deadline: <?php echo $deadline; ?></h4>
-                    <a href="jointrip.php?id=<?php echo $id; ?>" class="btn btn-primary">Join Trip</a>
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <?php
+                                if($slots>$pcount){
+                                    echo '<a href="jointrip.php?id='.$id.'" class="btn btn-primary">Join Trip</a>';
+                                }else{
+                                    echo '<button class="btn btn-primary disabled">Trip Full</button>';
+                                }
+                            ?>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">Already joined :<?php echo $pcount;?></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -242,7 +257,7 @@ if(isset($_GET['user'])){
             <div class="row"><h1><?php echo $name; ?></h1></div>
             <div class="row">
                 <div class="col-md-8">Meeting Point: <?php echo $meetingPoint; ?> at <?php echo $meetingTime; ?></div>
-                <div class="col-md-4"><a href="" class="btn btn-primary">Contact Organiser</a></div>
+                <div class="col-md-4"><a href="<?php echo 'contactorg.php?id='.$byuser;?>" class="btn btn-primary">Contact Organiser</a></div>
             </div>
             <br>
             <div class="row-fluid">

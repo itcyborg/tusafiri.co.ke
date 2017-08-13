@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="@localhost" uuid="8c8ae96a-7ef9-43aa-8b7b-73d19d4d45c8">
+      <database-info product="MySQL" version="5.7.18-log" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.40 ( Revision: 402933ef52cad9aa82624e80acbea46e3a701ce6 )">
+        <extra-name-characters>#@</extra-name-characters>
+        <identifier-quote-string>`</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>kiboit_tusafiri</user-name>
+      <introspection-schemas>*:fine,kiboit_tusafiri</introspection-schemas>
+    </data-source>
+    <data-source name="kiboit_tusafiri@197.248.5.25" uuid="32afd37a-03db-4cd1-9700-822d7ebded30">
+      <database-info product="MySQL" version="5.5.5-10.0.32-MariaDB" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.40 ( Revision: 402933ef52cad9aa82624e80acbea46e3a701ce6 )">
+        <extra-name-characters>#@</extra-name-characters>
+        <identifier-quote-string>`</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>kiboit_tusafiri</user-name>
+      <introspection-schemas>*:kiboit_tusafiri</introspection-schemas>
+    </data-source>
+  </component>
+</project>

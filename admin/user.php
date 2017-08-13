@@ -191,13 +191,20 @@ if(isset($_SESSION['user']) && isset($_SESSION['id'],$_SESSION['role'])){
                                                     ->setData($data)
                                                     ->exec();
                                                 foreach ($results['result'] as $result) {
+                                                    $contact=$result->Mobile;
+                                                    if($contact==""){
+                                                        $contact=$result->CompanyTel;
+                                                        if($contact==""){
+                                                            $contact="N/A";
+                                                        }
+                                                    }
                                                     echo "<tr>
                                                                   <td>$result->uniqueID</td>
                                                                   <td>$result->Email</td>
                                                                   <td>$result->FullName</td>
                                                                   <td>$result->Username</td>
                                                                   <td>$result->Creation</td>
-                                                                  <td>$result->Contact</td>
+                                                                  <td>$contact</td>
                                                                   <td><div class='dropdown'>
                                                                       <button class='btn btn-primary dropdown-toggle' type='button' data-toggle='dropdown'>Action
                                                                       <span class='caret'></span></button>

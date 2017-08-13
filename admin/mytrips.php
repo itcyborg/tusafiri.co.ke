@@ -172,11 +172,12 @@ if(isset($_SESSION['user']) && isset($_SESSION['id'],$_SESSION['role'])){
                                         require_once "../functions/autoload.php";
                                         $db=new Db_connector();
                                         $userid=$_SESSION['id'];
+                                        $email=$_SESSION['user'];
                                         $db->setDetails(array('host' => 'localhost', 'dbname' => 'kiboit_tusafiri', 'dbpass' => '{@dE*Zby?llT', 'dbuser' => 'kiboit_tusafiri', 'port' => '3306', 'showerrors' => true));
                                         $db->isSelect()
-                                            ->setTable('booked')
+                                            ->setTable('tripsview')
                                             ->setData(array('*'))
-                                            ->setCondition("UserID='$userid'");
+                                            ->setCondition("Email='$email'");
                                         $result=$db->exec();
                                         $output="";
                                         $results=$result['result'];
@@ -202,7 +203,7 @@ if(isset($_SESSION['user']) && isset($_SESSION['id'],$_SESSION['role'])){
                                                 <tr>
                                                      <td>$items->TripID</td>
                                                      <td>$items->Name</td>
-                                                     <td>$items->BookID</td>
+                                                     <td>$items->Invoice</td>
                                                      <td>$items->Destination</td>
                                                      <td>$items->StartDate</td>
                                                      <td>$items->FinishDate</td>
@@ -233,19 +234,19 @@ if(isset($_SESSION['user']) && isset($_SESSION['id'],$_SESSION['role'])){
                                                     $status = "Cancelled";
                                                 }
                                                 $output .= "
-                    <tr>
-                         <td>$items->TripID</td>
-                         <td>$items->Name</td>
-                         <td>$items->BookID</td>
-                         <td>$items->Destination</td>
-                         <td>$items->StartDate</td>
-                         <td>$items->FinishDate</td>
-                         <td>$items->MeetingPoint</td>
-                         <td>$items->Amount</td>
-                         <td>$status</td>
-                         <td>Action</td>               
-                    </tr>
-                ";
+                                                    <tr>
+                                                         <td>$items->TripID</td>
+                                                         <td>$items->Name</td>
+                                                         <td>$items->Invoice</td>
+                                                         <td>$items->Destination</td>
+                                                         <td>$items->StartDate</td>
+                                                         <td>$items->FinishDate</td>
+                                                         <td>$items->MeetingPoint</td>
+                                                         <td>$items->Amount</td>
+                                                         <td>$status</td>
+                                                         <td>Action</td>               
+                                                    </tr>
+                                                ";
                                             }
                                         }
                                         ?>

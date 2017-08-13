@@ -23,9 +23,56 @@
  * uqpid        -generated
  */
 
+if(isset($_GET['form'])){
+    $invoice = $_GET['invoice'];
+    $tripid=explode('TRIP',$invoice)[1];
+    $sql = "  SELECT trips.Amount,trips.Name as TripName,
+        users.FullName as FName,users.Email,users.Company,users.Mobile FROM users 
+        JOIN trips ON trips.ByUser=users.uniqueID 
+        WHERE trips.ID='$tripid'";
+    $db = new PDO("mysql:host=localhost;dbname=kiboit_tusafiri", 'kiboit_tusafiri', '{@dE*Zby?llT');
+    $result = $db->query($sql)->fetch(PDO::FETCH_OBJ);
+    $payer = $result->Mobile;
+    $pstatus = "unverified";
+    $payment_date = date('Y-m-d H:i:s');
+    $firstname = explode(" ", $result->FName)[0];
+    $lastname = explode(" ", $result->FName)[1];
+    $payeremail = $result->Email;
+    $paymenttype = 'paybill';
+    $currency = "KSHS";
+    $amount = $result->Amount;
+    $paymentby = 'Mpesa';
+    $item = $result->TripName;
+    $uqpid = generateID();
 
-if (isset($_GET['invoice'], $_GET['fnd'])) {
-    echo "sa";
+    //insert the values
+    require_once "../functions/autoload.php";
+    $dbs = new Db_connector();
+    $dbs->setDetails(array('host' => 'localhost', 'dbname' => 'kiboit_tusafiri', 'dbpass' => '{@dE*Zby?llT', 'dbuser' => 'kiboit_tusafiri', 'port' => '3306', 'showerrors' => true));
+    $dbs->isInsert()
+        ->setTable('trippayments')
+        ->setData([
+            'Invoice' => $invoice,
+            'PayerID' => $payer,
+            'PStatus' => $pstatus,
+            'PaymentDate' => $payment_date,
+            'FirstName' => $firstname,
+            'LastName' => $lastname,
+            'PayerEmail' => $payeremail,
+            'PaymentType' => $paymenttype,
+            'Currency' => $currency,
+            'Amount' => $amount,
+            'PaymentBy' => $paymentby,
+            'Item' => $item,
+            'UQPID' => generateID()
+        ]);
+    $dbs->exec();
+    if ($dbs->isError()) {
+        die($dbs->getMsg());
+    } else {
+
+    }
+}elseif (isset($_GET['invoice'], $_GET['fnd'])) {
     $invoice = $_GET['invoice'];
     $sql = "  SELECT trips.Amount,trips.Name as TripName,
         joinedtrips.Name as FName,joinedtrips.Email,joinedtrips.Contact,joinedtrips.Timestamp,joinedtrips.UQID FROM joinedtrips 

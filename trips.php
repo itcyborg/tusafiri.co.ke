@@ -2,7 +2,7 @@
 session_start();
 $db=new PDO("mysql:host=localhost;dbname=kiboit_tusafiri", 'kiboit_tusafiri','{@dE*Zby?llT' );
 $now = date('Y-m-d');
-$sql = "SELECT trips.*,users.* FROM trips JOIN users ON users.uniqueID=trips.ByUser WHERE trips.Post='YES' AND FinishDate >= '$now' ORDER BY StartDate DESC";
+$sql = "SELECT trips.*,users.* FROM trips JOIN users ON users.uniqueID=trips.ByUser WHERE trips.Post='YES' AND FinishDate >= '$now' ORDER BY Classification desc, StartDate DESC";
 $data="";
 $_SESSION['return_to']=$_SERVER['HTTP_REFERER'];
 if(isset($_GET['page'])){
@@ -160,6 +160,7 @@ if(isset($_GET['page'])){
                     $stopdate = date('d M, Y', strtotime($result->FinishDate));
                     $photo = explode(',', $images)[0];
                     $info=limit_text(strip_tags($result->Info),30);
+                    $namea=limit_text($result->Name,4);
                     echo "
                             <a href='showtrips.php?id=$result->UQID' style='height:500px;'><div class='col-md-7 col-lg-7 col-sm-12 col-xs-12' style='margin-bottom:20px;'>
                                 <div class='card'>
@@ -168,7 +169,7 @@ if(isset($_GET['page'])){
                                         <h4><span class='fa fa-plane'></span> $date - $stopdate</h4>
                                     </div>
                                     <div class='footer'>
-                                        <h3>$result->Name ($state)</h3>
+                                        <h3>$namea ($state)</h3>
                                         <div class='row'><div class='col-md-8'> <h4><span class='fa fa-map-marker'></span> $result->Destination</h4></div><div class='col-md-4'><span class='fa fa-user'></span> $result->Username</div> </div>
                                     </div>
                                     <div class='details'>
@@ -189,6 +190,7 @@ if(isset($_GET['page'])){
                     $stopdate = date('d M, Y', strtotime($result->FinishDate));
                     $photo = explode(',', $images)[0];
                     $info = limit_text(strip_tags($result->Info), 30);
+                    $namea=limit_text($result->Name,4);
                     echo "
                             <a href='showtrips.php?id=$result->UQID'><div class='col-md-4 col-lg-4 col-sm-12 col-xs-12' style='margin-bottom:20px;'>
                                 <div class='card'>
@@ -197,7 +199,7 @@ if(isset($_GET['page'])){
                                         <h4><span class='fa fa-plane'></span> $date - $stopdate</h4>
                                     </div>
                                     <div class='footer'>
-                                        <h3>$result->Name ($state)</h3>
+                                        <h3>$namea ($state)</h3>
                                         <div class='row'><div class='col-md-8'> <h4><span class='fa fa-map-marker'></span> $result->Destination</h4></div><div class='col-md-4'><span class='fa fa-user'></span> $result->Username</div> </div>
                                     </div>
                                     <div class='details'>

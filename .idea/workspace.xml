@@ -1,0 +1,939 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f0f54b81-e960-4638-af0f-36acb3c27837" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/user/tripDescription.php" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/index.php" afterPath="$PROJECT_DIR$/admin/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/mytrips.php" afterPath="$PROJECT_DIR$/admin/mytrips.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/mpesa.php" afterPath="$PROJECT_DIR$/app/mpesa.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/processmpesa.php" afterPath="$PROJECT_DIR$/app/processmpesa.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/createTrip.php" afterPath="$PROJECT_DIR$/createTrip.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/imagepop.css" afterPath="$PROJECT_DIR$/css/imagepop.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/finish.php" afterPath="$PROJECT_DIR$/finish.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/functions/checkout.php" afterPath="$PROJECT_DIR$/functions/checkout.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/functions/constructor.php" afterPath="$PROJECT_DIR$/functions/constructor.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/functions/search.php" afterPath="$PROJECT_DIR$/functions/search.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/showtrips.php" afterPath="$PROJECT_DIR$/showtrips.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trips.php" afterPath="$PROJECT_DIR$/trips.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/user/continue.php" afterPath="$PROJECT_DIR$/user/continue.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/user/createTrip.php" afterPath="$PROJECT_DIR$/user/createTrip.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/user/createnewTrip.php" afterPath="$PROJECT_DIR$/user/createnewTrip.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/user/index.php" afterPath="$PROJECT_DIR$/user/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/user/pricing.php" afterPath="$PROJECT_DIR$/user/pricing.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/user/tripCreated.php" afterPath="$PROJECT_DIR$/user/tripCreated.php" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_TABLE_DETAILS" value="true" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <expand>
+      <path>
+        <item name="" type="eadb38e5:DatabaseStructure$Root" />
+        <item name="kiboit_tusafiri@197.248.5.25" type="e3449647:DbNodeDescriptor" />
+      </path>
+      <path>
+        <item name="" type="eadb38e5:DatabaseStructure$Root" />
+        <item name="kiboit_tusafiri@197.248.5.25" type="e3449647:DbNodeDescriptor" />
+        <item name="kiboit_tusafiri" type="e3449647:DbNodeDescriptor" />
+      </path>
+      <path>
+        <item name="" type="eadb38e5:DatabaseStructure$Root" />
+        <item name="kiboit_tusafiri@197.248.5.25" type="e3449647:DbNodeDescriptor" />
+        <item name="kiboit_tusafiri" type="e3449647:DbNodeDescriptor" />
+        <item name="" type="fce03ad6:DatabaseStructure$GroupNode" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="tour" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="finish.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/finish.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2431">
+              <caret line="143" column="49" lean-forward="false" selection-start-line="143" selection-start-column="49" selection-end-line="143" selection-end-column="60" />
+              <folding>
+                <marker date="1502369930805" expanded="true" signature="361:405" ph="SELECT * fro... joinedtrips" />
+                <marker date="1502369930805" expanded="true" signature="650:690" ph="SELECT * FRO... trips" />
+                <marker date="1502369930805" expanded="true" signature="1052:1086" ph="SELECT * FRO... trips" />
+                <marker date="1502369930805" expanded="true" signature="1270:1314" ph="SELECT * FRO... users" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="checkout.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/functions/checkout.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="544">
+              <caret line="105" column="103" lean-forward="false" selection-start-line="105" selection-start-column="103" selection-end-line="105" selection-end-column="103" />
+              <folding>
+                <element signature="e#354#3114#0#PHP" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mpesa.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/mpesa.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1190">
+              <caret line="75" column="5" lean-forward="false" selection-start-line="75" selection-start-column="5" selection-end-line="75" selection-end-column="5" />
+              <folding>
+                <marker date="1502370481239" expanded="true" signature="584:794" ph="SELECT trips... users" />
+                <marker date="1502370481239" expanded="true" signature="2399:2666" ph="SELECT trips... joinedtrips" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="console.sql" pinned="false" current-in-tab="true">
+        <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/32afd37a-03db-4cd1-9700-822d7ebded30/console.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="5" column="15" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="processmpesa.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/processmpesa.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="19" column="16" lean-forward="false" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
+              <folding>
+                <marker date="1502370749995" expanded="false" signature="810:836" ph="..." />
+                <marker date="1502370749995" expanded="true" signature="913:1145" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="trips" pinned="false" current-in-tab="false">
+        <entry file="das://table:/9f469059/32afd37a-03db-4cd1-9700-822d7ebded30/kiboit_tusafiri.trips">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+        <option value="HTML File" />
+        <option value="CSS File" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>featuredTr</find>
+      <find>section</find>
+      <find>explore</find>
+      <find>container</find>
+      <find>fh5co-explore</find>
+      <find>sec</find>
+      <find>fa</find>
+      <find>body</find>
+      <find>html</find>
+      <find>footer</find>
+      <find>fh</find>
+      <find>fh5co</find>
+      <find>em</find>
+      <find>''</find>
+      <find>slide-ima</find>
+      <find>item</find>
+      <find>brand</find>
+      <find>navbar-br</find>
+      <find>navbar-bran</find>
+      <find>logo</find>
+      <find>navbar-brand</find>
+      <find>fh5co-header</find>
+      <find>.home</find>
+      <find>drop</find>
+      <find>join</find>
+      <find>\&quot;</find>
+      <find>card</find>
+      <find>msg</find>
+      <find>new PD</find>
+      <find>wrapper</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/contact.html" />
+        <option value="&lt;0542343a-5e75-4272-915c-c5ba7047f357&gt;/public_html/register.php" />
+        <option value="$PROJECT_DIR$/js/datepicker.js" />
+        <option value="$PROJECT_DIR$/index.php" />
+        <option value="$PROJECT_DIR$/css/imagepop.css" />
+        <option value="$PROJECT_DIR$/bus/user.php" />
+        <option value="$PROJECT_DIR$/bus/trips.php" />
+        <option value="$PROJECT_DIR$/bus/settings.php" />
+        <option value="$PROJECT_DIR$/bus/payments.php" />
+        <option value="$PROJECT_DIR$/bus/mytrips.php" />
+        <option value="$PROJECT_DIR$/bus/index.php" />
+        <option value="$PROJECT_DIR$/reset.php" />
+        <option value="$PROJECT_DIR$/resetComplete.php" />
+        <option value="$PROJECT_DIR$/bus/signout.php" />
+        <option value="$PROJECT_DIR$/functions/mailer.php" />
+        <option value="$PROJECT_DIR$/app/init.php" />
+        <option value="$PROJECT_DIR$/app/GoogleAuth.inc" />
+        <option value="$PROJECT_DIR$/ind.php" />
+        <option value="$PROJECT_DIR$/login.php" />
+        <option value="$PROJECT_DIR$/register.php" />
+        <option value="$PROJECT_DIR$/jointrip.php" />
+        <option value="$PROJECT_DIR$/user/finish.php" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/8c8ae96a-7ef9-43aa-8b7b-73d19d4d45c8/console.sql" />
+        <option value="$PROJECT_DIR$/app/mail.php" />
+        <option value="$PROJECT_DIR$/app/notify.php" />
+        <option value="$PROJECT_DIR$/app/processmpesa.php" />
+        <option value="$PROJECT_DIR$/user/continue.php" />
+        <option value="$PROJECT_DIR$/cards.html" />
+        <option value="$PROJECT_DIR$/css/bootstrap.css" />
+        <option value="$PROJECT_DIR$/test.css" />
+        <option value="$PROJECT_DIR$/showtrips1.php" />
+        <option value="$PROJECT_DIR$/showtrips.php" />
+        <option value="$PROJECT_DIR$/trips.php" />
+        <option value="$PROJECT_DIR$/functions/search.php" />
+        <option value="$PROJECT_DIR$/admin/signout.php" />
+        <option value="$PROJECT_DIR$/image-picker/image-picker.css" />
+        <option value="$PROJECT_DIR$/admin/index.php" />
+        <option value="$PROJECT_DIR$/admin/mytrips.php" />
+        <option value="$PROJECT_DIR$/admin/payments.php" />
+        <option value="$PROJECT_DIR$/admin/settings.php" />
+        <option value="$PROJECT_DIR$/admin/system.php" />
+        <option value="$PROJECT_DIR$/admin/trips.php" />
+        <option value="$PROJECT_DIR$/admin/user.php" />
+        <option value="$PROJECT_DIR$/functions/constructor.php" />
+        <option value="$PROJECT_DIR$/user/tripDescription.php" />
+        <option value="$PROJECT_DIR$/user/createTrip.php" />
+        <option value="$PROJECT_DIR$/createTrip.php" />
+        <option value="$PROJECT_DIR$/finish.php" />
+        <option value="$PROJECT_DIR$/functions/checkout.php" />
+        <option value="$PROJECT_DIR$/app/mpesa.php" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/32afd37a-03db-4cd1-9700-822d7ebded30/console.sql" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsFlowSettings">
+    <service-enabled>false</service-enabled>
+    <exe-path />
+    <annotation-enable>false</annotation-enable>
+    <other-services-enabled>false</other-services-enabled>
+    <auto-save>true</auto-save>
+  </component>
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="PhpServers">
+    <servers />
+  </component>
+  <component name="PhpTemplates">
+    <option name="NEW_PHP_CLASS_LAST_EXTENSION" value="inc" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" interpreter_name="PHP" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="974" />
+    <option name="height" value="1057" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>SQL</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers ProjectPane="true" />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource ProjectPane="true" />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="tour" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tour" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="tour" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tour" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="tour" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tour" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="functions" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="" />
+    <property name="node.js.path.for.package.stylelint" value="project" />
+    <property name="node.js.detected.package.stylelint" value="true" />
+    <property name="node.js.selected.package.stylelint" value="" />
+    <property name="node.js.path.for.package.jscs" value="project" />
+    <property name="node.js.detected.package.jscs" value="true" />
+    <property name="node.js.selected.package.jscs" value="" />
+    <property name="node.js.path.for.package.standard" value="project" />
+    <property name="node.js.detected.package.standard" value="true" />
+    <property name="node.js.selected.package.standard" value="" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="G:\PROJECTS\WEB\tour\app" />
+      <recent name="G:\PROJECTS\WEB\tour" />
+      <recent name="G:\PROJECTS\WEB\tour\functions" />
+      <recent name="G:\PROJECTS\WEB\tour\bus" />
+      <recent name="G:\PROJECTS\WEB\tour\js" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="G:\PROJECTS\WEB\tour\images" />
+      <recent name="G:\PROJECTS\WEB\tour" />
+      <recent name="G:\PROJECTS\WEB\tour\admin" />
+      <recent name="G:\PROJECTS\WEB\tour\css" />
+      <recent name="G:\PROJECTS\WEB\tour\user" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+    </configuration>
+    <configuration default="true" type="CodeceptionConfigurationType" factoryName="Codeception">
+      <PhpTestRunnerSettings />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerJest" factoryName="Jest">
+      <node-interpreter value="project" />
+      <working-dir value="" />
+      <envs />
+      <scope-kind value="ALL" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerProtractor" factoryName="Protractor">
+      <config-file value="" />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="project" working-dir="">
+      <method />
+    </configuration>
+    <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpBehatConfigurationType" factoryName="Behat">
+      <BehatRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpSpecConfigurationType" factoryName="PHPSpec">
+      <PhpTestRunnerSettings />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+      <command value="run" />
+      <scripts />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="mocha-javascript-test-runner" factoryName="Mocha">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <working-directory />
+      <pass-parent-env>true</pass-parent-env>
+      <envs />
+      <ui />
+      <extra-mocha-options />
+      <test-kind>DIRECTORY</test-kind>
+      <test-directory />
+      <recursive>false</recursive>
+      <method />
+    </configuration>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f0f54b81-e960-4638-af0f-36acb3c27837" name="Default" comment="" />
+      <created>1498390262406</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1498390262406</updated>
+      <workItem from="1498390263993" duration="9071000" />
+      <workItem from="1498400148882" duration="1422000" />
+      <workItem from="1498548166044" duration="5188000" />
+      <workItem from="1498556581364" duration="16572000" />
+      <workItem from="1498634491846" duration="8731000" />
+      <workItem from="1498663183540" duration="6123000" />
+      <workItem from="1498753225385" duration="3478000" />
+      <workItem from="1498808576932" duration="2375000" />
+      <workItem from="1498831576003" duration="16270000" />
+      <workItem from="1498890523744" duration="12711000" />
+      <workItem from="1498924122049" duration="6267000" />
+      <workItem from="1498935886610" duration="746000" />
+      <workItem from="1498975905731" duration="68000" />
+      <workItem from="1498976014547" duration="4591000" />
+      <workItem from="1499014122497" duration="7504000" />
+      <workItem from="1499093229698" duration="5482000" />
+      <workItem from="1499099815575" duration="11464000" />
+      <workItem from="1499159525019" duration="958000" />
+      <workItem from="1499161302989" duration="7599000" />
+      <workItem from="1499320915113" duration="18808000" />
+      <workItem from="1499453095994" duration="499000" />
+      <workItem from="1499532046780" duration="1048000" />
+      <workItem from="1499537359419" duration="2599000" />
+      <workItem from="1499583705445" duration="18024000" />
+      <workItem from="1499682550083" duration="20949000" />
+      <workItem from="1499755640681" duration="4765000" />
+      <workItem from="1499765644414" duration="6129000" />
+      <workItem from="1499779526458" duration="17171000" />
+      <workItem from="1499843972048" duration="17539000" />
+      <workItem from="1499891714016" duration="21409000" />
+      <workItem from="1500023291732" duration="9050000" />
+      <workItem from="1500143452169" duration="4679000" />
+      <workItem from="1500272256229" duration="14899000" />
+      <workItem from="1500300069548" duration="22000" />
+      <workItem from="1500378959958" duration="7407000" />
+      <workItem from="1501263157277" duration="9516000" />
+      <workItem from="1501309032224" duration="13591000" />
+      <workItem from="1501334443227" duration="18283000" />
+      <workItem from="1501398428413" duration="21961000" />
+      <workItem from="1501482360855" duration="1314000" />
+      <workItem from="1501484359984" duration="16256000" />
+      <workItem from="1501570115327" duration="3670000" />
+      <workItem from="1501601112345" duration="4436000" />
+      <workItem from="1501660606616" duration="10509000" />
+      <workItem from="1501685034043" duration="7259000" />
+      <workItem from="1501743633721" duration="38000" />
+      <workItem from="1501750307409" duration="7617000" />
+      <workItem from="1501760654169" duration="118000" />
+      <workItem from="1501760963859" duration="22437000" />
+      <workItem from="1501829766082" duration="12314000" />
+      <workItem from="1501858163944" duration="8724000" />
+      <workItem from="1501935236261" duration="7001000" />
+      <workItem from="1501957004184" duration="6683000" />
+      <workItem from="1502000053009" duration="2075000" />
+      <workItem from="1502019219525" duration="242000" />
+      <workItem from="1502041304061" duration="597000" />
+      <workItem from="1502103635464" duration="607000" />
+      <workItem from="1502180488573" duration="3083000" />
+      <workItem from="1502198669055" duration="1805000" />
+      <workItem from="1502268041348" duration="2678000" />
+      <workItem from="1502356276918" duration="720000" />
+      <workItem from="1502361897562" duration="4789000" />
+      <workItem from="1502369089538" duration="173000" />
+      <workItem from="1502394054777" duration="333000" />
+      <workItem from="1502398766143" duration="18000" />
+    </task>
+    <task id="LOCAL-00001" summary="updates">
+      <created>1501342247388</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1501342247388</updated>
+    </task>
+    <task id="LOCAL-00002" summary="updates">
+      <created>1501601531416</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1501601531416</updated>
+    </task>
+    <task id="LOCAL-00003" summary="updates">
+      <created>1501837580134</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1501837580134</updated>
+    </task>
+    <task id="LOCAL-00004" summary="updates">
+      <created>1502268178670</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1502268178670</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="480464000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
+    <layout>
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32942432" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.118336886" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32414553" sideWeight="0.5021322" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27452025" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296582" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.12686567" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296582" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32524806" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32414553" sideWeight="0.4978678" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32855567" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/app/ipn-code-samples" />
+    </ignored-roots>
+    <MESSAGE value="updates" />
+    <option name="LAST_COMMIT_MESSAGE" value="updates" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="8" />
+    </breakpoint-manager>
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="das://view:/9f469059/8c8ae96a-7ef9-43aa-8b7b-73d19d4d45c8/kiboit_tusafiri.booked" />
+    <entry file="das://table:/9f469059/8c8ae96a-7ef9-43aa-8b7b-73d19d4d45c8/kiboit_tusafiri.payments" />
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/8c8ae96a-7ef9-43aa-8b7b-73d19d4d45c8/console.sql" />
+    <entry file="file://$PROJECT_DIR$/register.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="173" column="18" lean-forward="true" selection-start-line="173" selection-start-column="18" selection-end-line="173" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/functions/mailer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libs/vendor/phpmailer/phpmailer/examples/smtp_check.phps">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libs/vendor/phpmailer/phpmailer/examples/smtp.phps">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="848">
+          <caret line="54" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libs/vendor/phpmailer/phpmailer/class.smtp.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libs/vendor/composer/ClassLoader.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-6672">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libs/vendor/composer/autoload_files.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libs/vendor/composer/autoload_real.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-76">
+          <caret line="21" column="70" lean-forward="false" selection-start-line="21" selection-start-column="70" selection-end-line="21" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libs/vendor/autoload.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/ipn-code-samples/php/example_usage_advanced.php" />
+    <entry file="file://$PROJECT_DIR$/app/PaypalIPN.php" />
+    <entry file="file://$PROJECT_DIR$/app/mail.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="9" column="42" lean-forward="true" selection-start-line="9" selection-start-column="42" selection-end-line="9" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-34">
+          <caret line="1" column="17" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="224" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/start.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/notify.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1394">
+          <caret line="14" column="11" lean-forward="false" selection-start-line="14" selection-start-column="11" selection-end-line="14" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/bootstrap.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="6689" column="16" lean-forward="false" selection-start-line="6689" selection-start-column="16" selection-end-line="6689" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="536">
+          <caret line="69" column="1" lean-forward="true" selection-start-line="69" selection-start-column="1" selection-end-line="69" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cards.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-561">
+          <caret line="9" column="117" lean-forward="false" selection-start-line="9" selection-start-column="117" selection-end-line="10" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/9f469059/8c8ae96a-7ef9-43aa-8b7b-73d19d4d45c8/kiboit_tusafiri.users" />
+    <entry file="file://$PROJECT_DIR$/showtrips1.php" />
+    <entry file="file://$PROJECT_DIR$/functions/search.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="55" column="35" lean-forward="true" selection-start-line="55" selection-start-column="35" selection-end-line="55" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trips.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="31" column="2" lean-forward="true" selection-start-line="31" selection-start-column="2" selection-end-line="31" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/showtrips.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-73">
+          <caret line="185" column="4" lean-forward="true" selection-start-line="185" selection-start-column="4" selection-end-line="185" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/signout.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/image-picker/image-picker.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="714">
+          <caret line="42" column="16" lean-forward="false" selection-start-line="42" selection-start-column="16" selection-end-line="42" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="74" lean-forward="false" selection-start-line="7" selection-start-column="74" selection-end-line="7" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/mytrips.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="1" lean-forward="false" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/payments.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="1" lean-forward="false" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/settings.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="5" lean-forward="false" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/system.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="1" lean-forward="false" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/trips.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="1" lean-forward="false" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/user.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="6" lean-forward="true" selection-start-line="18" selection-start-column="6" selection-end-line="18" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Downloads/Ftp kiboit.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="41" lean-forward="true" selection-start-line="14" selection-start-column="41" selection-end-line="14" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/user/continue.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="40" column="25" lean-forward="true" selection-start-line="40" selection-start-column="25" selection-end-line="40" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/user/createTrip.php" />
+    <entry file="file://$PROJECT_DIR$/user/tripCreated.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1649">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/user/tripDescription.php" />
+    <entry file="file://$PROJECT_DIR$/functions/constructor.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="671">
+          <caret line="428" column="46" lean-forward="true" selection-start-line="428" selection-start-column="46" selection-end-line="428" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/createTrip.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="318">
+          <caret line="343" column="33" lean-forward="false" selection-start-line="343" selection-start-column="33" selection-end-line="343" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/9f469059/32afd37a-03db-4cd1-9700-822d7ebded30/kiboit_tusafiri.trips">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/9f469059/32afd37a-03db-4cd1-9700-822d7ebded30/kiboit_tusafiri.users">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/9f469059/32afd37a-03db-4cd1-9700-822d7ebded30/kiboit_tusafiri.payments">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/processmpesa.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="19" column="16" lean-forward="false" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
+          <folding>
+            <marker date="1502370749995" expanded="false" signature="810:836" ph="..." />
+            <marker date="1502370749995" expanded="true" signature="913:1145" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/finish.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2431">
+          <caret line="143" column="49" lean-forward="false" selection-start-line="143" selection-start-column="49" selection-end-line="143" selection-end-column="60" />
+          <folding>
+            <marker date="1502369930805" expanded="true" signature="361:405" ph="SELECT * fro... joinedtrips" />
+            <marker date="1502369930805" expanded="true" signature="650:690" ph="SELECT * FRO... trips" />
+            <marker date="1502369930805" expanded="true" signature="1052:1086" ph="SELECT * FRO... trips" />
+            <marker date="1502369930805" expanded="true" signature="1270:1314" ph="SELECT * FRO... users" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/functions/checkout.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="105" column="103" lean-forward="false" selection-start-line="105" selection-start-column="103" selection-end-line="105" selection-end-column="103" />
+          <folding>
+            <element signature="e#354#3114#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/mpesa.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1190">
+          <caret line="75" column="5" lean-forward="false" selection-start-line="75" selection-start-column="5" selection-end-line="75" selection-end-column="5" />
+          <folding>
+            <marker date="1502370481239" expanded="true" signature="584:794" ph="SELECT trips... users" />
+            <marker date="1502370481239" expanded="true" signature="2399:2666" ph="SELECT trips... joinedtrips" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://view:/9f469059/32afd37a-03db-4cd1-9700-822d7ebded30/kiboit_tusafiri.tripsview">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/32afd37a-03db-4cd1-9700-822d7ebded30/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="15" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

@@ -81,7 +81,7 @@ $_SESSION['count']=0;
 
 </head>
 <body>
-<header role="banner" id="fh5co-header">
+<header id="fh5co-header">
     <div class="fluid-container">
         <nav class="navbar navbar-default">
             <div class="navbar-header">
@@ -92,13 +92,12 @@ $_SESSION['count']=0;
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#"><span>My Trips</span></a></li>
-                    <li><a class="external" href="login.php"></a></li>
-                    <li class="dropdown">
-                        <a href="#" data-toggle="dropdown" id="menu1" class="dropdown-toggle"><i class="icon-user"></i><b class="caret"></b></a>
-                        <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                    <li><a href="mytrips.php"><span>My Trips</span></a></li>
+                    <li class="dropdown" style="display: inline-block">
+                        <a href="#" data-toggle="dropdown" class="dropdown-toggle external"><i class="icon-user"></i><b class="caret"></b></a>
+                        <ul class="dropdown-menu">
                             <li><a href="settings.php"><i class="icon-settings"></i> Settings</a></li>
-                            <li><a href="#" onclick="sign_Out();"><i class="icon-logout"></i> Sign out</a></li>
+                            <li><a href="logout.php" onclick="sign_Out();"><i class="icon-logout"></i> Sign out</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -138,7 +137,7 @@ $_SESSION['count']=0;
                 Meeting point
                 <input type="text" required placeholder="Meeting Point" name="meeting" class="form-control"><br>
                 How many slots are available?
-                <input type="number" min="1" name="slots" required class="form-control"><br>
+                <input type="text" name="slots" placeholder="Slots Available" required class="form-control"><br>
                 <div class="row">
                     upload Trip Photos
                     <div class="filestatus" id="filesUploaded">
@@ -182,10 +181,11 @@ $_SESSION['count']=0;
             <div class="col-md-4 col-sm-12 col-lg-3 col-lg">
                 <h3 class="section-title">Connect with Us</h3>
                 <ul class="social-media">
-                    <li><a href="#" class="facebook"><i class="icon-facebook"></i></a></li>
-                    <li><a href="#" class="twitter"><i class="icon-twitter"></i></a></li>
-                    <li><a href="#" class="dribbble"><i class="icon-dribbble"></i></a></li>
-                    <li><a href="#" class="github"><i class="icon-github-alt"></i></a></li>
+                    <li><a href="https://www.facebook.com/Tusafiri_KE" class="facebook"><i class="icon-facebook"></i></a></li>
+                    <li><a href="https://www.twitter.com/Tusafiri_KE" class="twitter"><i class="icon-twitter"></i></a></li>
+                    <li><a href="https://www.instagram.com/Tusafiri_KE/" class="instagram"><i class="icon-instagram"></i></a></li>
+                    <li><a href="https://www.youtube.com/user/TusafiriPlanner" class="youtube"><i class="icon-social-youtube"></i></a></li>
+                    <li><a href="mailto:helpdesk@tusafiri.co.ke"><i class="icon-help2"></i></a></li>
                 </ul>
             </div>
         </div>

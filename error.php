@@ -91,6 +91,9 @@
             if($_GET['error']=="unauthorised"){
                 echo "<div class='alert alert-danger'>Error. You are not authorised to access ".$_GET['from']."</div>";
             }
+            if($_GET['error']=="generalerror"){
+                echo "<br><br><div class='alert alert-warning'><h1 class='text-center'><div style='font-size:3em;'>Oops!</div> <br><hr> <br><br>Something went wrong. Please try again.<br> If you recieve errors please <a href='../contact.html'>contact us</a> for assistance</h1></div>";
+            }
         }
         ?>
     </div>

@@ -52,7 +52,7 @@ if (isset($_POST['mpesacomplete'])) {
         ];
 
         $response = $mj->post(Resources::$Email, ['body' => $body]);
-        return $response->success();
+        $response->success();
     }
 }
 

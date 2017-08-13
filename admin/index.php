@@ -3,6 +3,11 @@
     if(isset($_SESSION['user']) && isset($_SESSION['id'],$_SESSION['role'])){
         if($_SESSION['role']==0){
 
+            if(isset($_GET['proceed']) || isset($_SESSION['refurl'])=='createTrip'){
+                $_SESSION['proceed']='createTrip';
+                header('location:../user/reviewTrip.php');
+            }
+
         }else{
             $from=$_SERVER['REQUEST_URI'];
             header("Location:../error.php?error=unauthorised&from=$from");
@@ -288,14 +293,8 @@
     <!--  Notifications Plugin    -->
     <script src="assets/js/bootstrap-notify.js"></script>
 
-    <!--  Google Maps Plugin    -->
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
-
     <!-- Paper Dashboard Core javascript and methods for Demo purpose -->
 	<script src="assets/js/paper-dashboard.js"></script>
-
-	<!-- Paper Dashboard DEMO methods, don't include it in your project! -->
-	<script src="assets/js/demo.js"></script>
 
     <script type="text/javascript">
         $(document).ready(function(){

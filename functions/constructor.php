@@ -59,10 +59,18 @@ if(isset($_POST['schedule']) && !isset($_POST['createTrip'])){
 if (isset($_POST['meetinganddeadline'])) {
     $meetingtime = $_POST['meetingtime'];
     $deadline = $_POST['deadline'];
-    $_SESSION['meetingtime'] = $meetingtime;
+    $mttime=$_POST['mttime'];
+    $_SESSION['meetingdate'] = $meetingtime;
     $_SESSION['deadline'] = $deadline;
-    if (trim($deadline) != "" && trim($meetingtime) != "") {
-        echo json_encode(array('status' => true, 'url' => 'index.php?proceed=true'));
+    $_SESSION['meetingtime']=$mttime;
+    if(isset($_SESSION['id'])){
+        $url="user/reviewTrip.php";
+    }else{
+        $_SESSION['refurl']="createTrip";
+        $url="login.php";
+    }
+    if (trim($deadline) != "" && trim($meetingtime) != "" && trim($mttime)!="") {
+        echo json_encode(array('status' => true, 'url' => 'user/reviewTrip.php'));
     } else {
         echo json_encode(array('status' => false));
     }
@@ -410,19 +418,23 @@ if(isset($_POST['createTrip'])){
 
     $uqid=generateID();
     $_SESSION['tid']=$uqid;
+    $format="Y-m-d h:i:sa";
+    $meetingtime=DateTime::createFromFormat($format,$_SESSION['meetingdate'].$_SESSION['meetingtime']);
 
     //set the data in an associative array with column name as key and value as value to be inserted
     $data = array(
         'UQID'          =>  $uqid,
         'Name'          =>  $name,
-        'Category' => $_SESSION['tripcategory'],
+        'Category'      =>  $_SESSION['tripcategory'],
         'Destination'   =>  $_SESSION['destination'],
         'StartDate'     =>  $from,
         'FinishDate'    =>  $to,
         'MeetingPoint'  =>  $meeting,
         'Slots'         =>  $slots,
         'Photos'        =>  $uploads,
-        'ByUser' => $_SESSION['id']
+        'ByUser'        =>  $_SESSION['id'],
+        'MeetingTime'   =>  $meetingtime,
+        'Deadline'      =>  $_SESSION['deadline']
     );
 
     //pass the data
@@ -542,6 +554,13 @@ if(isset($_POST['save']) || isset($_POST['savePost'])){
     $cost=$_POST['cost'];
     $costgroup=$_POST['costgroup'];
     $welcome=$_POST['welcome'];
+    $featured=$_POST['onoffswitch3'];
+    $tripfeature="";
+    if($featured==true){
+        $tripfeature="featued";
+    }else{
+        $tripfeature="normal";
+    }
     require_once "autoload.php";
     $db=new Db_connector();
 
@@ -562,10 +581,11 @@ if(isset($_POST['save']) || isset($_POST['savePost'])){
     }
 
     $data=array(
-        'Amount'    =>  $cost,
-        'Per'       =>  $costgroup,
-        'Welcome'   =>  $welcome,
-        'Post'      =>  $post
+        'Amount'                    =>  $cost,
+        'Per'                       =>  $costgroup,
+        'Welcome'                   =>  $welcome,
+        'Post'                      =>  $post,
+        'Classification'            =>  $tripfeature
     );
 
     $db->setCondition("ID='$id'");
@@ -577,7 +597,11 @@ if(isset($_POST['save']) || isset($_POST['savePost'])){
     if($db->isError() || $res['status']==false){
         header("location:".$_SERVER['HTTP_REFERER']."?id=".$id);
     }else{
-        header("location:../user/tripCreated.php?id=".$id);
+        if($featured){
+            header("location:../paytrip.php?id=".$id."&return=tripCreated.php?id=".$id);
+        }else{
+            header("location:../user/tripCreated.php?id=".$id);
+        }
     }
 }
 
@@ -663,7 +687,7 @@ if(isset($_POST['getAccount'])){
     $db=new Db_connector();
     $db->setDetails(array('host' => 'localhost', 'dbname' => 'kiboit_tusafiri', 'dbpass' => '{@dE*Zby?llT', 'dbuser' => 'kiboit_tusafiri', 'port' => '3306', 'showerrors' => true));
     $db->isSelect()
-        ->setTable("paidtrips")
+        ->setTable("ptrips")
         ->setData(array("*"))
         ->setCondition("ByUser='$userid'");
     $result=$db->exec();
@@ -714,12 +738,53 @@ if (isset($_POST['getDestinations'])) {
     $options = "";
     if ($result['count'] > 0) {
         $results = $result['result'];
+        $destinations=array();
         foreach ($results as $item) {
-            $option .= "<option value='$item->Destination'>$item->Destination</option>";
+            if(!in_array($item->Destination, $destinations)){
+                $destinations[]=$item->Destination;
+                $option .= "<option value='$item->Destination'>$item->Destination</option>";
+            }
         }
         echo json_encode(array('status' => true, 'options' => $option));
     } else {
         echo json_encode(array('status' => false));
+    }
+}
+
+if(isset($_POST['contactorg'])){
+    $organiser=$_POST['organiser'];
+    $orgemail=$_POST['orgemail'];
+    $email=$_POST['email'];
+    $subject=$_POST['subject'];
+    $name=$_POST['name'];
+    $tel=$_POST['tel'];
+    $msg=$_POST['msg'];
+    require_once "autoload.php";
+    $db=new Db_connector();
+    $db->setDetails(array('host' => 'localhost', 'dbname' => 'kiboit_tusafiri', 'dbpass' => '{@dE*Zby?llT', 'dbuser' => 'kiboit_tusafiri', 'port' => '3306', 'showerrors' => true));
+    $db->isInsert()
+        ->setTable("usermessages")
+        ->setData(array(
+            'FromUser'  =>  $email,
+            'Subject'   =>  $subject,
+            'Contact'   =>  $tel,
+            'Message'   =>  $msg,
+            'Name'      =>  $name,
+            'ToUser'    =>  $organiser
+        ));
+    $result=$db->exec();
+    if($db->isError()){
+        echo json_encode(array('status'=>false,'error'=>$db->getMsg()));
+        die();
+    }else{
+        $res=sendMessage($orgemail,$name,$msg,$email,$subject);
+        if($res==true){
+            echo json_encode(array('status'=>true,'to'=>$orgemail .'<'.$organiser.'>'));
+            die();
+        }else{
+            echo json_encode(array('status'=>false,'error'=>$res));
+            die();
+        }
     }
 }
 
@@ -957,10 +1022,52 @@ function jointrip($array)
                 'Gender' => $array['gender'],
                 'UQID' => $uqid
             ]);
-        $dbs->exec();
+        try{
+            $res=$dbs->exec();
+            if(!$res){
+            header("Location:../error.php?error=generalerror");
+            die();
+            }
+        }catch(PDOException $e){
+            header("Location:../error.php?error=generalerror");
+            die();
+        }
         if ($dbs->isError()) {
             return array('status' => false, 'error' => $dbs->getMsg());
         } else {
+            $sqw="SELECT * FROM trips_users WHERE UQID='$id'";
+            $result=$db->query($sqw);
+            if($result->rowCount()>0){
+                $results=$result->fetch(PDO::FETCH_OBJ);
+                $email=$results->Email;
+                $tripname=$results->Name;
+                $msg = "
+                    <img src='http://www.tusafiri.co.ke/images/logo.png' style='width: 300px;height:100px;'>
+                    <hr>
+                    <h3>Trip Notice: New Participant for Trip ID: $id</h3>
+                    <p>Hey, ".$array['name']."</p>
+                    <hr>
+                    <p>
+                    We would like to notify you that a new participant has joined the trip,<b><i>$tripname</i></b>, you organized.<br>
+                    The trip info is outlined below:<br><br><br>
+                    Trip name:<b> $tripname</b><br>
+                    Destination:<b> $results->Destination</b><br>
+                    Amount:<b> $results->Amount KSHS</b><br><br>
+                    <hr>
+                    The participant's information is as follows:<br>
+                    Name: ".$array['name']."<br>
+                    Email: ".$array['email']."<br>
+                    Contact: ".$array['contact']."<br>
+                    Gender: ".$array['gender']."
+                    <br>
+                    <br>
+                    <br>
+                    <i>The information above has been sent automatically. Contact us for more info: info@tusafiri.co.ke
+                    </i> 
+                    </p>
+                ";
+                sendMail($email, $msg, 'admin@tusafiri.co.ke', 'New Trip Participant');
+            }
             return array('status' => true, 'joinid' => $uqid);
         }
     } else {

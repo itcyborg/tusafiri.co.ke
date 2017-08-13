@@ -68,6 +68,7 @@ if(isset($_POST['searchtrip']))
         } else {
             $class = "col-md-4 col-lg-4";
         }
+        $namea=limit_text($result->Name,5);
         $output.= "
         <a href='showtrips.php?id=$result->UQID'><div class='$class col-sm-12 col-xs-12' style='margin-bottom:20px;'>
             <div class='card'>
@@ -76,7 +77,7 @@ if(isset($_POST['searchtrip']))
                     <h4><span class='fa fa-plane'></span> $result->StartDate - $result->FinishDate</h4>
                 </div>
                 <div class='footer'>
-                    <h3>$result->Name ($state)</h3>
+                    <h3>$namea ($state)</h3>
                     <div class='row'><div class='col-md-8'> <h4><span class='fa fa-map-marker'></span> $result->Destination</h4></div><div class='col-md-4'><span class='fa fa-user'></span> $result->Username</div> </div>
                 </div>
                 <div class='details'>

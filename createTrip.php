@@ -153,15 +153,20 @@ $_SESSION['return_to']=$from;
                 <form id="formstep5">
                     <div class="form-group">
                         Registration Deadline
-                        <input type="date" name="registrationdeadline">
+                        <input type="date" name="registrationdeadline" id="deadline" class="form-control">
                     </div>
                     <div class="form-group">
-                        Meeting Time
-                        <input type="Date" name="meetingtime">
+                        <div class="col-md-6">
+                            Meeting Date
+                            <input type="date" name="meetingtime" id="meetingtime" class="form-control">
+                        </div>
+                        <div class="col-md-6">
+                            Meeting Time
+                            <input type="time" name="time" id="mttime" class="form-control">
+                        </div>
                     </div>
-                    <div class="row form-inline">From <input required type="date" id="fromdate" class="form-control"> to
-                        <input required class="form-control" id="todate" type="date"></div>
                     <br>
+                    <hr>
                     <input type="submit" name="continue5" id="continue5" value="Continue >"
                            class="btn btn-primary pull-right">
                 </form>
@@ -317,6 +322,7 @@ $_SESSION['return_to']=$from;
                 success:function(data){
                     if(data.status){
                         $('#step4').fadeOut();
+                        $('#step5').fadeIn();
                     }else{
                         alert("An error occured. Please try again");
                     }
@@ -328,14 +334,16 @@ $_SESSION['return_to']=$from;
 
         $('#formstep5').submit(function (d) {
             d.preventDefault();
-            var deadline = $('#registrationdeadline').val();
+            var deadline = $('#deadline').val();
             var meetingtime = $('#meetingtime').val();
+            var tme=$('#mttime').val();
             $.ajax({
                 url: 'functions/constructor.php',
                 data: {
                     'meetinganddeadline': 1,
                     'meetingtime': meetingtime,
-                    'deadline': deadline
+                    'deadline': deadline,
+                    'mttime':tme
                 },
                 type: 'POST',
                 dataType: 'json',
@@ -351,10 +359,8 @@ $_SESSION['return_to']=$from;
                 }
             });
             $('#step5').fadeOut();
-        }
+        })
     });
-    });
-
     function back(step,prev) {
         $('#'+prev).fadeOut();
         $('#'+step).fadeIn();

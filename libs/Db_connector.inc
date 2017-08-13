@@ -220,6 +220,8 @@ class Db_connector
             $this->code=$e->getCode();
             $this->error = true;
             return false;
+        }catch(Exception $e){
+            return false;
         }
     }
 

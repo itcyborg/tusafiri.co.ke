@@ -21,6 +21,33 @@ if(isset($_GET['action'])){
         $res=$res->fetch(PDO::FETCH_OBJ);
         $tripname=$res->Name;
         $tripamount = $res->Amount;
+    }elseif($_GET['action']=="trippayment" && isset($_GET['id'])){
+        $id=$_GET['id'];
+        $book="TRIP".$id;
+        $db=new PDO("mysql:host=localhost;dbname=kiboit_tusafiri", 'kiboit_tusafiri','{@dE*Zby?llT' );
+        $results=$db->query("SELECT * FROM trips WHERE ID='$id'");
+        $result=$results->fetch(PDO::FETCH_OBJ);
+        $tripname = $result->Name;
+        $userid = $result->ByUser;
+        $date = $result->Timestamp;
+        $res=$db->query("SELECT * FROM users WHERE uniqueID='$userid'");
+        $res=$res->fetch(PDO::FETCH_OBJ);
+        $name=$res->FullName;
+        if($name==""){
+            $name=$res->Company;
+        }
+        $email = $res->Email;
+        $featureoption=$_GET['option'];
+        $tripamount=0;
+        if($featureoption==1){
+            $tripamount=1500;
+        }elseif($featureoption==2){
+            $tripamount=4500;
+        }elseif($tripamount==3){
+            $tripamount=9000;
+        }elseif($featureoption==4){
+            $tripamount=$_GET['days']*500;
+        }
     }
 }else{
     die("Error");
@@ -114,6 +141,7 @@ if(isset($_GET['action'])){
             <div class="row">
                 <div class="col-xs-12">
                     <div class="invoice-title">
+                        <input type="text" name="trippayment" value="<?php echo $_GET['action'];?>" hidden>
                         <h2></h2><h3 class="pull-right">Order # <?php echo $book;?></h3>
                         <input type="text" value="<?php echo $book;?>" hidden name="invoice">
                     </div>
@@ -174,7 +202,6 @@ if(isset($_GET['action'])){
                                     <tr>
                                         <th>Total</th>
                                         <th class="text-center"><?php echo $tripamount;?> Kshs</th>
-                                        <th class="text-center">1</th>
                                         <th class="text-right"><?php echo $tripamount;?> Kshs</th>
                                     </tr>
                                     </tbody>
@@ -184,7 +211,7 @@ if(isset($_GET['action'])){
                     </div>
                 </div>
             </div>
-            <button>Pay</button>
+            <button class="btn btn-success btn-lg"><i class="glyphicon glyphicon-coins"></i> Pay</button>
         </form>
     </div>
 </div>
